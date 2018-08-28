@@ -1,0 +1,61 @@
+section.miroirs {
+    margin: auto;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  ul.miroirs {
+    padding: 2%;
+    margin: 0;
+    border-radius: 45%;
+    height: 70vh;
+    width: 90%;
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #00000052;
+    display: flex;
+    align-items: baseline;
+    flex-flow: wrap row;
+    justify-content: center;
+
+    li {
+      list-style: none;
+      width: 40%;
+      color: #b50000c7;
+      font-size: 1.5em;
+      margin: 1%;
+      border-radius: 5px;
+      background: #ffffff69;
+      padding: 1%;
+
+      .miroir-image {
+        width: 65px;
+        order: 1;
+        padding: 0 10%;
+      }
+      .miroir-title {
+        order: 2;
+        font-size: .6em;
+        margin: 1% 0;
+      }
+      .combinaison {
+        display: flex;
+        justify-content: center;
+        flex-flow: wrap row;
+        padding: 0;
+
+        .combinaison-maison {
+          font-weight: 100;
+          font-size: .6em;
+          width: 75%;
+          margin: 5px 0;
+          color: #1b3345cf;
+        }
+      }
+    }
+  }
+  p {
+    color: #00000052;
+    font-size: 1.5em;
+  }
+}

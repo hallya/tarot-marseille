@@ -1,0 +1,27 @@
+@import 'Styles/vars.scss';
+
+.App {
+  text-align: center;
+  font-family: $font;
+  min-height: 100vh;
+  height: 100vh;
+}
+footer {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  color: rgba(255, 255, 255, 0.445);
+  bottom: 0;
+  user-select: none;
+  font-size: 0.5em;
+}
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: -1;
+  width: 100vw;
+}

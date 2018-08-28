@@ -1,0 +1,46 @@
+.voies-boucles {
+  width: 90%;
+  margin: auto;
+  height: 85vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap row;
+  h2 {
+    color: white;
+    width: 50%;
+    padding: 0;
+  }
+  .voies {
+    order: 1;
+  }
+  .boucles {
+    order: 2;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    li {
+      background: #ffffff69;
+      padding: 10px;
+      width: 210px;
+      border-radius: 5px;
+      font-weight: 100;
+    }
+  }
+  .list-voies {
+    order: 3;
+  }
+  .list-boucles {
+    order: 4;
+  }
+  p {
+    color: #00000052;
+    font-size: 1.5em;
+  }
+}

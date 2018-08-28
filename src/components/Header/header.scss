@@ -1,0 +1,30 @@
+header {
+  ul {
+      display: flex;
+      justify-content: center;
+      flex-flow: wrap row;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: 15px;
+        user-select: none;
+        display: flex;
+
+        &.selected a {
+          padding: 3px;
+          border: 2px solid #9ec6ff83;
+          color: #ffffff;
+        }
+        a {
+          // transition: .2s ease;
+          border-radius: 10px;
+          padding: 5px;
+          color: white;
+          font-weight: 100;
+          text-decoration: none;
+        }
+      }
+  }
+}
