@@ -144,13 +144,13 @@ export const getVoiesEtBoucles = ({m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11,
     matchsVoies = [],
     matchsBoucles = [];
   
-  houses.map((firstHouse) => {
+  houses.forEach(firstHouse => {
     for (let firstLevel in voiesDB) {
       if (Number(firstLevel) === firstHouse) {
-        houses.map((secondHouse) => {
+        houses.forEach(secondHouse => {
           for (let secondLevel in voiesDB[firstLevel]) {
             if (Number(secondLevel) === secondHouse ) { 
-              houses.filter((thirdHouse) => {
+              houses.forEach(thirdHouse => {
                 for (let thirdLevel in voiesDB[firstLevel][secondLevel]) {
                   if (Number(thirdLevel) === thirdHouse && matchsVoies.indexOf(voiesDB[firstLevel][secondLevel][thirdLevel]) === -1) { 
                     matchsVoies.push(voiesDB[firstLevel][secondLevel][thirdLevel]);

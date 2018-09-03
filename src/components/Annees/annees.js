@@ -10,7 +10,7 @@ const Annees = ({year, annees, cards}) => {
             {
               annees.map((value, index) =>
                 <li key={index} className="annees">
-                  <img src={cards[value]} />
+                  <img src={cards[value]} alt={value} />
                   <p>{year + index}</p>
                   <p>{`${index} an${index > 1 ? 's' : ''}`}</p>
                 </li>

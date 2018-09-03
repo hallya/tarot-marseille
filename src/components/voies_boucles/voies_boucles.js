@@ -13,7 +13,7 @@ const VoiesEtBoucles = ({voies, boucles}) => {
               {
                 voies.length
                   ? voies.map((voie, index) => <li key={index}>{voie}</li>)
-                  : 'Pas de voie . . .'
+                  : <li>Pas de voie . . .</li>
               }
             </ul>
           : <p>Entrez votre date de naissance dans l'onglet Arcanes ou Alliance</p>
@@ -27,7 +27,7 @@ const VoiesEtBoucles = ({voies, boucles}) => {
               {
                 boucles.length
                   ? boucles.map((boucle, index) => <li key={index}>{boucle}</li>)
-                  : 'Pas de boucles . . .'
+                  : <li>Pas de boucles . . .</li>
               }
             </ul>
       }

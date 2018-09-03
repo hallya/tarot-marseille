@@ -23,7 +23,7 @@ const Miroirs13 = ({miroirs, cards}) => {
                       }
                     </ul>
                   </li> ))
-                : 'Pas de miroir . . .'
+                : <li>Pas de miroir . . .</li>
             }
             </ul>
           : <p>Entrez votre date de naissance dans l'onglet Arcanes ou Alliance</p>

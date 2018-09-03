@@ -145,7 +145,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header activeTab={this.state.activeTab} goToTab={this.goToTab} />
-        <Route exact path='/taro-test' render={() => <Cards
+        <Route exact path='/tarot-build' render={() => <Cards
           handleUser={this.handleUser}
           state={this.state}
           zoomCard={this.zoomCard} />}
