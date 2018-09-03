@@ -34,7 +34,7 @@ const getPublicUrl = appPackageJson =>
 function getServedPath(appPackageJson) {
   const publicUrl = getPublicUrl(appPackageJson);
   const servedUrl =
-    envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '/tarot-build/');
+    envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '/tarot-marseille/');
   return ensureSlash(servedUrl, true);
 }
 

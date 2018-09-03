@@ -7,7 +7,7 @@ const Header = (props) => {
     <header>
       <nav>
         <ul>
-          <li id='arcanes' onClick={() => props.goToTab('arcanes')} className={props.activeTab.arcanes ? 'selected':''}><Link to='/tarot-build'>Arcanes</Link></li>
+          <li id='arcanes' onClick={() => props.goToTab('arcanes')} className={props.activeTab.arcanes ? 'selected':''}><Link to='/tarot-marseille'>Arcanes</Link></li>
           <li id='alliance' onClick={() => props.goToTab('alliance')} className={props.activeTab.alliance ? 'selected':''}><Link to='/alliance'>Alliance</Link></li>
           <li id='miroirs13' onClick={() => props.goToTab('miroirs13')} className={props.activeTab.miroirs13 ? 'selected':''}><Link to='/miroirs-13'>Miroirs 13</Link></li>
           <li id='miroirs17' onClick={() => props.goToTab('miroirs17')} className={props.activeTab.miroirs17 ? 'selected':''}><Link to='/miroirs-17'>Miroirs 17</Link></li>
