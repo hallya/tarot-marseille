@@ -82,7 +82,7 @@ main.arcane {
           will-change: transform;
           will-change: box-shadow;
           transition: 1.7s ease .9s;
-          // transform: translateY(4em);
+
           &.anim-shadow {
             transform: translateY(0);
             box-shadow: 0px 7px 2px -2px #00000060;
