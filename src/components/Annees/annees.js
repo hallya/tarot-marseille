@@ -1,7 +1,7 @@
 import React from 'react';
 import './annees.scss';
 
-const Annees = ({year, annees, cards}) => { 
+const Annees = ({year, annees, majors}) => { 
   return (
     <section className='annees-personnelles'>
       {
@@ -10,7 +10,7 @@ const Annees = ({year, annees, cards}) => {
             {
               annees.map((value, index) =>
                 <li key={index} className="annees">
-                  <img src={cards[value]} alt={value} />
+                  <img src={majors[value]} alt={value} />
                   <p>{year + index}</p>
                   <p>{`${index} an${index > 1 ? 's' : ''}`}</p>
                 </li>

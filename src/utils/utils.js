@@ -25,7 +25,6 @@ const checkMat = (num1, num2) => num1 - num2 < 0 ? (num1 - num2) * -1 : num1 - n
 const reducerOrNot = (year) => {
   let reduced = reduceNumber(year);
   if (reduced < 10 || reduced === 11 || reduced === 22) return reduced;
-  console.log(reduced, reduceNumber(reduced));
   return reduceNumber(reduced) 
 }
 
@@ -103,7 +102,7 @@ export const getMiroirs = (state) => {
   
   sortedHouses.forEach((a, index, array) => {
     array.forEach(b => {
-      if (a > 0 && a < 12 && b !== array[index]) {
+      if (12 > a > 0  && b !== array[index]) {
         const title = a.toString() + b.toString(),
         reversedTitle = b.toString() + a.toString();
         if (combinaisonDoesntExist(a, b, 13, existingCombinaisons, title, reversedTitle)) {
@@ -149,7 +148,7 @@ export const getVoiesEtBoucles = ({m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11,
       if (Number(firstLevel) === firstHouse) {
         houses.forEach(secondHouse => {
           for (let secondLevel in voiesDB[firstLevel]) {
-            if (Number(secondLevel) === secondHouse ) { 
+            if (Number(secondLevel) === secondHouse ) {
               houses.forEach(thirdHouse => {
                 for (let thirdLevel in voiesDB[firstLevel][secondLevel]) {
                   if (Number(thirdLevel) === thirdHouse && matchsVoies.indexOf(voiesDB[firstLevel][secondLevel][thirdLevel]) === -1) { 
