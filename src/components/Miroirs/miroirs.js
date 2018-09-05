@@ -1,7 +1,7 @@
 import React from 'react';
 import './miroirs.scss';
 
-const Miroirs13 = ({miroirs, cards}) => {
+const Miroirs13 = ({miroirs, majors}) => {
   return (
     <section className='miroirs'>
       {
@@ -12,7 +12,7 @@ const Miroirs13 = ({miroirs, cards}) => {
                 ? miroirs.map((value, index) => (
                   <li key={index}>
                     {
-                      value.images.map((image, index) => <img src={cards[image]} className='miroir-image' key={index} alt="" />)
+                      value.images.map((image, index) => <img src={majors[image]} className='miroir-image' key={index} alt="" />)
                     }
                     <p className='miroir-title' >{value.title}</p>
                     <ul className='combinaison'>

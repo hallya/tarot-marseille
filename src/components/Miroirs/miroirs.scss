@@ -20,13 +20,13 @@ section.miroirs {
 
     li {
       list-style: none;
-      width: 40%;
       color: #b50000c7;
+      width: 395px;
       font-size: 1.5em;
-      margin: 1%;
+      margin: 10px;
       border-radius: 5px;
       background: #ffffff69;
-      padding: 1%;
+      padding: 10px;
 
       .miroir-image {
         width: 65px;
@@ -36,7 +36,8 @@ section.miroirs {
       .miroir-title {
         order: 2;
         font-size: .6em;
-        margin: 1% 0;
+        padding: 2% 10%;
+        margin: 0;
       }
       .combinaison {
         display: flex;
@@ -47,7 +48,7 @@ section.miroirs {
         .combinaison-maison {
           font-weight: 100;
           font-size: .6em;
-          width: 75%;
+          width: 92%;
           margin: 5px 0;
           color: #1b3345cf;
         }
