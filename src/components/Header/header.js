@@ -18,7 +18,7 @@ const Header = ({activeTab}) => {
           </li>
           <li className={activeTab === '/miroirs-17' ? 'selected':''}>
             <Link to='/miroirs-17'>Miroirs 17</Link>
-          </li>g
+          </li>
           <li className={activeTab === '/miroirs-22' ? 'selected':''}>
             <Link to='/miroirs-22'>Miroirs 22</Link>
           </li>
