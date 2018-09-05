@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './App.scss';
 import Header from './components/Header/header';
-import Cards from './components/Cards/cards';
+import Arcanes from './components/Arcanes/arcanes';
 import Alliance from './components/Alliance/alliance';
 import Miroirs from './components/Miroirs/miroirs';
 import VoiesBoucles from './components/voies_boucles/voies_boucles'
 import Annees from './components/Annees/annees'
 import { getHouses, getMiroirs, getVoiesEtBoucles, getPersonnalYears } from './utils/utils';
-import { Route } from 'react-router-dom';
-import bg from "Assets/img/background.jpg";
-import assets from './utils/img';
+import { Route, withRouter } from 'react-router-dom';
+import { majors, minors } from './utils/img';
 
 const initialState = {
   firstname: '',
@@ -36,17 +36,9 @@ const initialState = {
   dayPartner: undefined,
   monthPartner: undefined,
   yearPartner: undefined,
-  cards: assets.majors,
-  minors: assets.minors,
-  activeTab: {
-    arcanes: false,
-    alliance: false,
-    voies: false,
-    miroirs13: false,
-    miroirs17: false,
-    miroirs22: false,
-    anneesPersonnelles: false
-  }
+  majors,
+  minors,
+  activeTab: 'arcanes'
 }
 const resetState = {
   firstname: '',
@@ -80,9 +72,21 @@ class App extends Component {
     super(props);
     this.state = initialState;
     this.handleUser = this.handleUser.bind(this);
-    this.goToTab = this.goToTab.bind(this);
   }
-
+  componentDidMount() {
+    if (this.state.activeTab !== this.props.location.pathname) {
+      this.setState({
+        activeTab: this.props.location.pathname,
+      })
+    }
+  }
+  componentDidUpdate() {
+    if (this.state.activeTab !== this.props.location.pathname) {
+      this.setState({
+        activeTab: this.props.location.pathname,
+      })
+    }
+  }
   async handleUser(e) {
     const form = e.currentTarget.elements;
     e.preventDefault();
@@ -115,27 +119,13 @@ class App extends Component {
       miroir17: [],
       miroir22: []
     })
-    await this.setState(getHouses(this.state));
     if (form['currentYear'].value) {
       await this.setState({ currentYear: Number(form['currentYear'].value) })
-      return await this.setState(getHouses(this.state))
     }
+    await this.setState(getHouses(this.state));
     await this.setState(getMiroirs(this.state));
     await this.setState(getVoiesEtBoucles(this.state));
     await this.setState(getPersonnalYears(this.state.m6, this.state.year))
-  }
-
-  goToTab (tab) {
-    let newState = {
-        arcanes: false,
-        miroirs13: false,
-        miroirs17: false,
-        miroirs22: false,
-        voies: false,
-        anneesPersonnelles: false
-    };
-    newState[tab] = !newState[tab];
-    this.setState({ activeTab: newState });
   }
 
   resetArcanes() {
@@ -144,29 +134,48 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header activeTab={this.state.activeTab} goToTab={this.goToTab} />
-        <Route exact path='/tarot-marseille' render={() => <Cards
+        <Header activeTab={this.state.activeTab} />
+        <Route exact path='/arcanes' render={() => <Arcanes
           handleUser={this.handleUser}
-          state={this.state}
-          zoomCard={this.zoomCard} />}
+          majors={this.state.majors}
+          minors={this.state.minors}
+          firstname={this.state.firstname}
+          lastname={this.state.lastname}
+          day={this.state.day}
+          month={this.state.month}
+          year={this.state.year}
+          firstSetHouses={[this.state.m1, this.state.m2, this.state.m3, this.state.m4, this.state.m5, this.state.m6, this.state.m7, this.state.m8, this.state.m9, this.state.m10, this.state.m11, this.state.m12]}
+          secondSetHouses={[this.state.m13, this.state.m14]}/>}
         />
         <Route exact path='/alliance' render={() => <Alliance
           handleUser={this.handleUser}
+          majors={this.state.majors}
+          minors={this.state.minors}
           state={this.state}
-          resetUser={this.resetUser}
-          zoomCard={this.zoomCard} />}
+          firstname={this.state.firstname}
+          lastname={this.state.lastname}
+          firstnamePartner={this.state.firstnamePartner}
+          lastnamePartner={this.state.lastnamePartner}
+          day={this.state.day}
+          month={this.state.month}
+          year={this.state.year}
+          dayPartner={this.state.dayPartner}
+          monthPartner={this.state.monthPartner}
+          yearPartner={this.state.yearPartner}
+          firstSetHouses={[this.state.m1, this.state.m2, this.state.m3, this.state.m4, this.state.m5, this.state.m6, this.state.m7, this.state.m8, this.state.m9, this.state.m10, this.state.m11, this.state.m12]}
+          secondSetHouses={[this.state.m13, this.state.m14]}/>}
         />
         <Route exact path='/miroirs-13' render={() => <Miroirs
           miroirs={this.state.miroir13}
-          cards={this.state.cards} />}
+          majors={this.state.majors} />}
         />
         <Route exact path='/miroirs-17' render={() => <Miroirs
           miroirs={this.state.miroir17}
-          cards={this.state.cards} />}
+          majors={this.state.majors} />}
         />
         <Route exact path='/miroirs-22' render={() => <Miroirs
           miroirs={this.state.miroir22}
-          cards={this.state.cards} />}
+          majors={this.state.majors} />}
         />
         <Route exact path='/voies-boucles' render={() => <VoiesBoucles
           voies={this.state.voies}
@@ -175,13 +184,18 @@ class App extends Component {
         <Route exact path='/annees-personnelles' render={() => <Annees
           annees={this.state.personnalYears}
           year={this.state.year}
-          cards={this.state.cards}/>}
+          majors={this.state.majors}/>}
         />
-        <img id='background' src={bg} alt="background" />
         <footer>D'après les travaux de George Colleuil</footer>
       </div>
     );
   }
 }
 
-export default App;
+App.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
+}
+
+export default withRouter(App);
