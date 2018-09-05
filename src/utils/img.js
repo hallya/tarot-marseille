@@ -1,25 +1,25 @@
-import C1 from 'Assets/majeurs/centre/01.jpg';
-import C2 from 'Assets/majeurs/centre/02.jpg';
-import C3 from 'Assets/majeurs/centre/03.jpg';
-import C4 from 'Assets/majeurs/centre/04.jpg';
-import C5 from 'Assets/majeurs/centre/05.jpg';
-import C6 from 'Assets/majeurs/centre/06.jpg';
-import C7 from 'Assets/majeurs/centre/07.jpg';
-import C8 from 'Assets/majeurs/centre/08.jpg';
-import C9 from 'Assets/majeurs/centre/09.jpg';
-import C10 from 'Assets/majeurs/centre/10.jpg';
-import C11 from 'Assets/majeurs/centre/11.jpg';
-import C12 from 'Assets/majeurs/centre/12.jpg';
-import C13 from 'Assets/majeurs/centre/13.jpg';
-import C14 from 'Assets/majeurs/centre/14.jpg';
-import C15 from 'Assets/majeurs/centre/15.jpg';
-import C16 from 'Assets/majeurs/centre/16.jpg';
-import C17 from 'Assets/majeurs/centre/17.jpg';
-import C18 from 'Assets/majeurs/centre/18.jpg';
-import C19 from 'Assets/majeurs/centre/19.jpg';
-import C20 from 'Assets/majeurs/centre/20.jpg';
-import C21 from 'Assets/majeurs/centre/21.jpg';
-import C22 from 'Assets/majeurs/centre/22.jpg';
+import C1 from 'Assets/majeurs/01.jpg';
+import C2 from 'Assets/majeurs/02.jpg';
+import C3 from 'Assets/majeurs/03.jpg';
+import C4 from 'Assets/majeurs/04.jpg';
+import C5 from 'Assets/majeurs/05.jpg';
+import C6 from 'Assets/majeurs/06.jpg';
+import C7 from 'Assets/majeurs/07.jpg';
+import C8 from 'Assets/majeurs/08.jpg';
+import C9 from 'Assets/majeurs/09.jpg';
+import C10 from 'Assets/majeurs/10.jpg';
+import C11 from 'Assets/majeurs/11.jpg';
+import C12 from 'Assets/majeurs/12.jpg';
+import C13 from 'Assets/majeurs/13.jpg';
+import C14 from 'Assets/majeurs/14.jpg';
+import C15 from 'Assets/majeurs/15.jpg';
+import C16 from 'Assets/majeurs/16.jpg';
+import C17 from 'Assets/majeurs/17.jpg';
+import C18 from 'Assets/majeurs/18.jpg';
+import C19 from 'Assets/majeurs/19.jpg';
+import C20 from 'Assets/majeurs/20.jpg';
+import C21 from 'Assets/majeurs/21.jpg';
+import C22 from 'Assets/majeurs/22.jpg';
 
 import M1 from 'Assets/mineurs/01.jpg';
 import M2 from 'Assets/mineurs/02.jpg';
@@ -78,8 +78,5 @@ import M54 from 'Assets/mineurs/54.jpg';
 import M55 from 'Assets/mineurs/55.jpg';
 import M56 from 'Assets/mineurs/56.jpg';
 
-const assets = {
-  majors: [C22, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20, C21, C22],
-  minors: [M56, M1, M2, M3, M4, M5, M6, M7, M8, M9, M10, M11, M12, M13, M14, M15, M16, M17, M18, M19, M20, M21, M22, M23, M24, M25, M26, M27, M28, M29, M30, M31, M32, M33, M34, M35, M36, M37, M38, M39, M40, M41, M42, M43, M44, M45, M46, M47, M48, M49, M50, M51, M52, M53, M54, M55, M56]
-}
-export default assets;
+export const majors = [C22, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20, C21, C22];
+export const minors = [M56, M1, M2, M3, M4, M5, M6, M7, M8, M9, M10, M11, M12, M13, M14, M15, M16, M17, M18, M19, M20, M21, M22, M23, M24, M25, M26, M27, M28, M29, M30, M31, M32, M33, M34, M35, M36, M37, M38, M39, M40, M41, M42, M43, M44, M45, M46, M47, M48, M49, M50, M51, M52, M53, M54, M55, M56];
