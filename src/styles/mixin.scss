@@ -1,0 +1,11 @@
+@import 'vars';
+@mixin m {
+  @media screen and (max-width: #{$screen-m-min}) {
+    @content;
+  }
+}
+@mixin s {
+  @media screen and (max-width: #{$screen-s-min}) {
+    @content;
+  }
+}
