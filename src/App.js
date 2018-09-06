@@ -132,6 +132,7 @@ class App extends Component {
     this.setState(resetState);
   }
   render() {
+    console.log(process.env.PUBLIC_URL);
     return (
       <div className="App">
         <Header activeTab={this.state.activeTab} />
