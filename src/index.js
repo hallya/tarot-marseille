@@ -7,6 +7,6 @@ import App from './App';
 const rootPath = process.env.NODE_ENV === 'production' ? '/tarot-marseille' : '/';
 
 ReactDOM.render(
-  <Router basename={rootPath}>
+  <Router basename={process.env.PUBLIC_URL}>
     <App />
   </Router>, document.getElementById('root'));
