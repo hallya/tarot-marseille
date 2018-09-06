@@ -136,7 +136,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header activeTab={this.state.activeTab} />
-        <Route path={process.env.PUBLIC_URL + '/arcanes'} render={() => <Arcanes
+        <Route path={'/arcanes'} render={() => <Arcanes
           handleUser={this.handleUser}
           majors={this.state.majors}
           minors={this.state.minors}
@@ -148,7 +148,7 @@ class App extends Component {
           firstSetHouses={[this.state.m1, this.state.m2, this.state.m3, this.state.m4, this.state.m5, this.state.m6, this.state.m7, this.state.m8, this.state.m9, this.state.m10, this.state.m11, this.state.m12]}
           secondSetHouses={[this.state.m13, this.state.m14]}/>}
         />
-        <Route path={process.env.PUBLIC_URL + '/alliance'} render={() => <Alliance
+        <Route path={'/alliance'} render={() => <Alliance
           handleUser={this.handleUser}
           majors={this.state.majors}
           minors={this.state.minors}
@@ -166,23 +166,23 @@ class App extends Component {
           firstSetHouses={[this.state.m1, this.state.m2, this.state.m3, this.state.m4, this.state.m5, this.state.m6, this.state.m7, this.state.m8, this.state.m9, this.state.m10, this.state.m11, this.state.m12]}
           secondSetHouses={[this.state.m13, this.state.m14]}/>}
         />
-        <Route path={process.env.PUBLIC_URL + '/miroirs-13'} render={() => <Miroirs
+        <Route path={'/miroirs-13'} render={() => <Miroirs
           miroirs={this.state.miroir13}
           majors={this.state.majors} />}
         />
-        <Route path={process.env.PUBLIC_URL + '/miroirs-17'} render={() => <Miroirs
+        <Route path={'/miroirs-17'} render={() => <Miroirs
           miroirs={this.state.miroir17}
           majors={this.state.majors} />}
         />
-        <Route path={process.env.PUBLIC_URL + '/miroirs-22'} render={() => <Miroirs
+        <Route path={'/miroirs-22'} render={() => <Miroirs
           miroirs={this.state.miroir22}
           majors={this.state.majors} />}
         />
-        <Route path={process.env.PUBLIC_URL + '/voies-boucles'} render={() => <VoiesBoucles
+        <Route path={'/voies-boucles'} render={() => <VoiesBoucles
           voies={this.state.voies}
           boucles={this.state.boucles}/>}
         />
-        <Route path={process.env.PUBLIC_URL + '/annees-personnelles'} render={() => <Annees
+        <Route path={'/annees-personnelles'} render={() => <Annees
           annees={this.state.personnalYears}
           year={this.state.year}
           majors={this.state.majors}/>}
