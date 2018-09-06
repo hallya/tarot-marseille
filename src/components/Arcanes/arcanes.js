@@ -1,6 +1,6 @@
 import React from 'react';
 import './arcanes.scss';
-
+import PropTypes from 'prop-types';
 
 const Arcanes = ({
   handleUser,
@@ -60,4 +60,16 @@ const Arcanes = ({
   );  
 }
 
+Arcanes.propTypes = {
+  handleUser: PropTypes.func,
+  majors: PropTypes.array.isRequired,
+  minors: PropTypes.array.isRequired,
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
+  day: PropTypes.number,
+  month: PropTypes.number,
+  year: PropTypes.number,
+  firstSetHouses: PropTypes.array.isRequired,
+  secondSetHouses: PropTypes.array.isRequired,
+}
 export default Arcanes;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './alliance.scss';
-
+import PropTypes from 'prop-types';
 
 const Alliance = ({
   handleUser,
@@ -76,6 +76,24 @@ const Alliance = ({
       </section>
     </main>
   );  
+}
+
+Alliance.propTypes = {
+  handleUser: PropTypes.func,
+  majors: PropTypes.array.isRequired,
+  minors: PropTypes.array.isRequired,
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
+  firstnamePartner: PropTypes.string.isRequired,
+  lastnamePartner: PropTypes.string.isRequired,
+  day: PropTypes.number,
+  month: PropTypes.number,
+  year: PropTypes.number,
+  dayPartner: PropTypes.number,
+  monthPartner: PropTypes.number,
+  yearPartner: PropTypes.number,
+  firstSetHouses: PropTypes.array.isRequired,
+  secondSetHouses: PropTypes.array.isRequired,
 }
 
 export default Alliance;

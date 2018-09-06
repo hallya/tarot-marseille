@@ -1,5 +1,6 @@
 import React from 'react';
 import './annees.scss';
+import PropTypes from 'prop-types';
 
 const Annees = ({year, annees, majors}) => { 
   return (
@@ -23,4 +24,9 @@ const Annees = ({year, annees, majors}) => {
   )
 }
 
+Annees.propTypes = {
+  year: PropTypes.string,
+  annees: PropTypes.array,
+  majors: PropTypes.array.isRequired
+}
 export default Annees;
