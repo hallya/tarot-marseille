@@ -1,4 +1,6 @@
 header {
+  height: 8vh;
+
   ul {
       display: flex;
       justify-content: center;
@@ -18,7 +20,6 @@ header {
           color: #ffffff;
         }
         a {
-          // transition: .2s ease;
           border-radius: 10px;
           padding: 5px;
           color: white;
