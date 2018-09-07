@@ -59,12 +59,16 @@ const resetState = {
   m12: undefined,
   m13: undefined,
   m14: undefined,
+  firstSetHouses: [],
+  secondSetHouses: [],
   day: undefined,
   month: undefined,
   year: undefined,
   dayPartner: undefined,
   monthPartner: undefined,
   yearPartner: undefined,
+  majors,
+  minors
 }
 
 class App extends Component {
@@ -82,6 +86,9 @@ class App extends Component {
   }
   componentDidUpdate() {
     if (this.state.activeTab !== this.props.location.pathname) {
+      if (['/arcanes', '/alliance'].includes(this.props.location.pathname)) {
+        this.resetArcanes();
+      }
       this.setState({
         activeTab: this.props.location.pathname,
       })
@@ -90,10 +97,7 @@ class App extends Component {
   async handleUser(e) {
     const form = e.currentTarget.elements;
     e.preventDefault();
-    if (this.state.year || this.state.yearPartner) {
-      this.resetArcanes();
-    }
-    if (form.length > 5) {
+    if (form['birthdayPartner']) {
       let [yearPartner, monthPartner, dayPartner] = await form['birthdayPartner'].value.split('-').map(value => Number(value));
       await this.setState({
         firstnamePartner: form['firstnamePartner'].value,
@@ -132,7 +136,6 @@ class App extends Component {
     this.setState(resetState);
   }
   render() {
-    console.log(process.env.PUBLIC_URL);
     return (
       <div className="App">
         <Header activeTab={this.state.activeTab} />
@@ -145,8 +148,8 @@ class App extends Component {
           day={this.state.day}
           month={this.state.month}
           year={this.state.year}
-          firstSetHouses={[this.state.m1, this.state.m2, this.state.m3, this.state.m4, this.state.m5, this.state.m6, this.state.m7, this.state.m8, this.state.m9, this.state.m10, this.state.m11, this.state.m12]}
-          secondSetHouses={[this.state.m13, this.state.m14]}/>}
+          firstSetHouses={this.state.firstSetHouses}
+          secondSetHouses={this.state.secondSetHouses}/>}
         />
         <Route path={'/alliance'} render={() => <Alliance
           handleUser={this.handleUser}
@@ -163,8 +166,8 @@ class App extends Component {
           dayPartner={this.state.dayPartner}
           monthPartner={this.state.monthPartner}
           yearPartner={this.state.yearPartner}
-          firstSetHouses={[this.state.m1, this.state.m2, this.state.m3, this.state.m4, this.state.m5, this.state.m6, this.state.m7, this.state.m8, this.state.m9, this.state.m10, this.state.m11, this.state.m12]}
-          secondSetHouses={[this.state.m13, this.state.m14]}/>}
+          firstSetHouses={this.state.firstSetHouses}
+          secondSetHouses={this.state.secondSetHouses}/>}
         />
         <Route path={'/miroirs-13'} render={() => <Miroirs
           miroirs={this.state.miroir13}
