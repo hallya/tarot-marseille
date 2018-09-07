@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './miroirs.scss';
 
-const Miroirs13 = ({miroirs, majors}) => {
+const Miroirs= ({miroirs, majors}) => {
   return (
     <section className='miroirs'>
       {
@@ -32,4 +33,8 @@ const Miroirs13 = ({miroirs, majors}) => {
   )
 }
 
-export default Miroirs13;
+Miroirs.propTypes = {
+  miroirs: PropTypes.array,
+  majors: PropTypes.array,
+}
+export default Miroirs;

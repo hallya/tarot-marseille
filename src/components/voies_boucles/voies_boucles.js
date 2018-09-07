@@ -1,5 +1,6 @@
 import React from 'react';
 import './voies_boucles.scss';
+import PropTypes from 'prop-types';
 
 const VoiesEtBoucles = ({voies, boucles}) => { 
   return (
@@ -33,6 +34,11 @@ const VoiesEtBoucles = ({voies, boucles}) => {
       }
     </section>
   )
+}
+
+VoiesEtBoucles.propTypes = {
+  voies: PropTypes.array,
+  boucles: PropTypes.array,
 }
 
 export default VoiesEtBoucles;
