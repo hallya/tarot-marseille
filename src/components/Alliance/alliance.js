@@ -1,79 +1,33 @@
 import React from 'react';
 import './alliance.scss';
 import PropTypes from 'prop-types';
+import UserField from 'Components/User/fieldset';
+import Cards from 'Components/Cards/cards';
 
-const Alliance = ({
-  handleUser,
-  majors,
-  minors,
-  firstname,
-  lastname,
-  firstnamePartner,
-  lastnamePartner,
-  day,
-  month,
-  year,
-  dayPartner,
-  monthPartner,
-  yearPartner,
-  firstSetHouses,
-  secondSetHouses,
-}) => {
+const Alliance = (props) => {
   const
-    slideAndShow = secondSetHouses[secondSetHouses.length - 1] >= 0 ? '' : 'hide-arcanes',
-    shadowAnimation = secondSetHouses[secondSetHouses.length - 1] >= 0 ? 'anim-shadow' : '',
-    showDescription = secondSetHouses[secondSetHouses.length - 1] >= 0 ? 'show-description' : '';
+    { yearPartner, handleUser } = props,
+    slideAndShow = yearPartner === undefined ? 'hide-arcanes' : '',
+    shadowAnimation = yearPartner !== undefined ? 'anim-shadow' : '',
+    showDescription = yearPartner !== undefined ? 'show-description' : '';
 
   return (
     <main className='arcane'>
       <section className='settings'>
         <form onSubmit={handleUser}>
-          <input className='user' type='text' autoComplete='given-name' name='firstname' placeholder='Prénom'></input>
-          <input className='user' type='text' autoComplete='family-name' name='lastname' placeholder='Nom'></input>
-          <input className='user' type='date' name='birthday' min="0001-01-01" max="9999-12-31"></input>
+          <UserField firstname={'firstname'} lastname={'lastname'} birthday={'birthday'}/>
+          <br />
+          <UserField firstname={'firstnamePartner'} lastname={'lastnamePartner'} birthday={'birthdayPartner'}/>
           <br/>
-          <input className='user' type='text' autoComplete='given-name' name='firstnamePartner' placeholder='Prénom allié'></input>
-          <input className='user' type='text' autoComplete='family-name' name='lastnamePartner' placeholder='Nom allié'></input>
-          <input className='user' type='date' name='birthdayPartner' min="0001-01-01" max="9999-12-31"></input>
-          <br/>
-          <input className='user' type='number' name='currentYear' placeholder='Année courante'></input>
+          <input className='user' type='number' name='currentYear' placeholder={new Date().getFullYear()}></input>
           <button className='user' type="submit">Valider</button>
         </form>
       </section>
-      <section className={`results ${slideAndShow}`}>
-        <ul className='first'>
-          {
-            firstSetHouses.map((card, i) => <li key={i} className={`m${i + 1}`}>
-              <img src={majors[firstSetHouses[i]]} className={shadowAnimation} alt=''/>
-                <p className={`description ${showDescription}`}>{`Maison ${i + 1}`}</p>
-              </li>
-            )
-          }
-        </ul>
-        <ul className='second'>
-          <li className='fullname' >
-            {firstname} {lastname}
-            <br />
-            né(e) le {day}.{month}.{year}
-            <br />
-            {firstnamePartner ? 'et' : ''}
-            <br />
-            {firstnamePartner} {lastnamePartner}
-            <br />
-            {
-              firstnamePartner
-                ? `né(e) le ${dayPartner}.${monthPartner}.${yearPartner}`
-                : ''
-            }
-          </li>
-          {
-            secondSetHouses.map((card, i) => <li key={i} className={`m${i + 13}`}>
-              <img src={i === 0 ? majors[secondSetHouses[i]] : minors[secondSetHouses[i]]} className={shadowAnimation} alt='' />
-              <p className={`description ${showDescription}`}>{`Maison ${i + 13}`}</p>
-            </li>)
-          }
-        </ul>
-      </section>
+      <Cards
+        slideAndShow={slideAndShow}
+        shadowAnimation={shadowAnimation}
+        showDescription={showDescription}
+        {...props} />
     </main>
   );  
 }
@@ -92,8 +46,8 @@ Alliance.propTypes = {
   dayPartner: PropTypes.number,
   monthPartner: PropTypes.number,
   yearPartner: PropTypes.number,
-  firstSetHouses: PropTypes.array.isRequired,
-  secondSetHouses: PropTypes.array.isRequired,
+  firstSetHouses: PropTypes.array,
+  secondSetHouses: PropTypes.array,
 }
 
 export default Alliance;
