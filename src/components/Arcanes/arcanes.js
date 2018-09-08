@@ -38,7 +38,7 @@ Arcanes.propTypes = {
   day: PropTypes.number,
   month: PropTypes.number,
   year: PropTypes.number,
-  firstSetHouses: PropTypes.array.isRequired,
-  secondSetHouses: PropTypes.array.isRequired,
+  firstSetHouses: PropTypes.array,
+  secondSetHouses: PropTypes.array,
 }
 export default Arcanes;
