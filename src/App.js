@@ -79,14 +79,13 @@ class App extends Component {
   }
   componentDidMount() {
     if (this.state.activeTab !== this.props.location.pathname) {
-      this.setState({
-        activeTab: this.props.location.pathname,
-      })
+      this.setState({ activeTab: this.props.location.pathname })
     }
   }
   componentDidUpdate() {
     if (this.state.activeTab !== this.props.location.pathname) {
-      if (['/arcanes', '/alliance'].includes(this.props.location.pathname)) {
+      if (this.state.dependency !== this.props.location.pathname
+        && ['/arcanes', '/alliance'].includes(this.props.location.pathname)) {
         this.resetArcanes();
       }
       this.setState({
@@ -127,69 +126,74 @@ class App extends Component {
       await this.setState({ currentYear: Number(form['currentYear'].value) })
     }
     await this.setState(getHouses(this.state));
-    await this.setState(getMiroirs(this.state));
-    await this.setState(getVoiesEtBoucles(this.state));
-    await this.setState(getPersonnalYears(this.state.m6, this.state.year))
+    await Promise.all([
+      this.setState(getMiroirs(this.state)),
+      this.setState(getVoiesEtBoucles(this.state)),
+      this.setState(getPersonnalYears(this.state.m6, this.state.year)),
+      this.setState({dependency: this.props.location.pathname}),
+    ])
   }
 
   resetArcanes() {
-    this.setState(resetState);
+    this.setState(Object.assign(resetState, {dependency: this.props.location.pathname}));
   }
   render() {
     return (
       <div className="App">
         <Header activeTab={this.state.activeTab} />
-        <Route path={'/arcanes'} render={() => <Arcanes
-          handleUser={this.handleUser}
-          majors={this.state.majors}
-          minors={this.state.minors}
-          firstname={this.state.firstname}
-          lastname={this.state.lastname}
-          day={this.state.day}
-          month={this.state.month}
-          year={this.state.year}
-          firstSetHouses={this.state.firstSetHouses}
-          secondSetHouses={this.state.secondSetHouses}/>}
-        />
-        <Route path={'/alliance'} render={() => <Alliance
-          handleUser={this.handleUser}
-          majors={this.state.majors}
-          minors={this.state.minors}
-          state={this.state}
-          firstname={this.state.firstname}
-          lastname={this.state.lastname}
-          firstnamePartner={this.state.firstnamePartner}
-          lastnamePartner={this.state.lastnamePartner}
-          day={this.state.day}
-          month={this.state.month}
-          year={this.state.year}
-          dayPartner={this.state.dayPartner}
-          monthPartner={this.state.monthPartner}
-          yearPartner={this.state.yearPartner}
-          firstSetHouses={this.state.firstSetHouses}
-          secondSetHouses={this.state.secondSetHouses}/>}
-        />
-        <Route path={'/miroirs-13'} render={() => <Miroirs
-          miroirs={this.state.miroir13}
-          majors={this.state.majors} />}
-        />
-        <Route path={'/miroirs-17'} render={() => <Miroirs
-          miroirs={this.state.miroir17}
-          majors={this.state.majors} />}
-        />
-        <Route path={'/miroirs-22'} render={() => <Miroirs
-          miroirs={this.state.miroir22}
-          majors={this.state.majors} />}
-        />
-        <Route path={'/voies-boucles'} render={() => <VoiesBoucles
-          voies={this.state.voies}
-          boucles={this.state.boucles}/>}
-        />
-        <Route path={'/annees-personnelles'} render={() => <Annees
-          annees={this.state.personnalYears}
-          year={this.state.year}
-          majors={this.state.majors}/>}
-        />
+        <main>
+          <Route path={'/arcanes'} render={() => <Arcanes
+            handleUser={this.handleUser}
+            majors={this.state.majors}
+            minors={this.state.minors}
+            firstname={this.state.firstname}
+            lastname={this.state.lastname}
+            day={this.state.day}
+            month={this.state.month}
+            year={this.state.year}
+            firstSetHouses={this.state.firstSetHouses}
+            secondSetHouses={this.state.secondSetHouses}/>}
+          />
+          <Route path={'/alliance'} render={() => <Alliance
+            handleUser={this.handleUser}
+            majors={this.state.majors}
+            minors={this.state.minors}
+            state={this.state}
+            firstname={this.state.firstname}
+            lastname={this.state.lastname}
+            firstnamePartner={this.state.firstnamePartner}
+            lastnamePartner={this.state.lastnamePartner}
+            day={this.state.day}
+            month={this.state.month}
+            year={this.state.year}
+            dayPartner={this.state.dayPartner}
+            monthPartner={this.state.monthPartner}
+            yearPartner={this.state.yearPartner}
+            firstSetHouses={this.state.firstSetHouses}
+            secondSetHouses={this.state.secondSetHouses}/>}
+          />
+          <Route path={'/miroirs-13'} render={() => <Miroirs
+            miroirs={this.state.miroir13}
+            majors={this.state.majors} />}
+          />
+          <Route path={'/miroirs-17'} render={() => <Miroirs
+            miroirs={this.state.miroir17}
+            majors={this.state.majors} />}
+          />
+          <Route path={'/miroirs-22'} render={() => <Miroirs
+            miroirs={this.state.miroir22}
+            majors={this.state.majors} />}
+          />
+          <Route path={'/voies-boucles'} render={() => <VoiesBoucles
+            voies={this.state.voies}
+            boucles={this.state.boucles}/>}
+          />
+          <Route path={'/annees-personnelles'} render={() => <Annees
+            annees={this.state.personnalYears}
+            year={this.state.year}
+            majors={this.state.majors}/>}
+          />
+        </main>
         <footer>D'après les travaux de George Colleuil</footer>
       </div>
     );
