@@ -7,7 +7,7 @@ import Alliance from './components/Alliance/alliance';
 import Miroirs from './components/Miroirs/miroirs';
 import VoiesBoucles from './components/voies_boucles/voies_boucles'
 import Annees from './components/Annees/annees'
-import { getHouses, getMiroirs, getVoiesEtBoucles, getPersonnalYears } from './utils/utils';
+import { getHouses, getMiroirs, getVoiesEtBoucles, getPersonnalYears, exctractBirthday } from './utils/utils';
 import { Route, withRouter } from 'react-router-dom';
 import { majors, minors } from './utils/img';
 
@@ -94,10 +94,17 @@ class App extends Component {
     }
   }
   async handleUser(e) {
+
     const form = e.currentTarget.elements;
     e.preventDefault();
+
     if (form['birthdayPartner']) {
-      let [yearPartner, monthPartner, dayPartner] = await form['birthdayPartner'].value.split('-').map(value => Number(value));
+      let [yearPartner, monthPartner, dayPartner] = await exctractBirthday(form['birthdayPartner']);
+      
+      [yearPartner, monthPartner, dayPartner] = !navigator.userAgent.includes('Chrome') && !navigator.userAgent.includes('Firefox')
+        ? [dayPartner, monthPartner, yearPartner]
+        : [yearPartner, monthPartner, dayPartner]
+      
       await this.setState({
         firstnamePartner: form['firstnamePartner'].value,
         lastnamePartner: form['lastnamePartner'].value,
@@ -106,8 +113,13 @@ class App extends Component {
         dayPartner
       })
     }
-    let  [year, month, day] = form['birthday'].value.split('-').map(value => Number(value)),
+
+    let [year, month, day] = exctractBirthday(form['birthday']),
       date = new Date();
+
+    [year, month, day] = !navigator.userAgent.includes('Chrome') && !navigator.userAgent.includes('Firefox')
+      ? [day, month, year]
+      : [year, month, day]
 
     year = year && year.toString().length > 4 ? year.toString().slice(1) : year;
     await this.setState({
