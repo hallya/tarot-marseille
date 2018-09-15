@@ -13,7 +13,7 @@ const Annees = ({year, annees, majors}) => {
                 <li key={index} className="annees">
                   <img src={majors[value]} alt={value} />
                   <p>{year + index}</p>
-                  <p>{`${index} an${index > 1 ? 's' : ''}`}</p>
+                  <p>{`${index} ${index > 1 ? 'ans' : 'an'}`}</p>
                 </li>
               )
             }
@@ -25,7 +25,7 @@ const Annees = ({year, annees, majors}) => {
 }
 
 Annees.propTypes = {
-  year: PropTypes.string,
+  year: PropTypes.number,
   annees: PropTypes.array,
   majors: PropTypes.array.isRequired
 }
