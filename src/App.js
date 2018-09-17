@@ -5,8 +5,9 @@ import Header from './components/Header/header';
 import Arcanes from './components/Arcanes/arcanes';
 import Alliance from './components/Alliance/alliance';
 import Miroirs from './components/Miroirs/miroirs';
-import VoiesBoucles from './components/voies_boucles/voies_boucles'
-import Annees from './components/Annees/annees'
+import VoiesBoucles from './components/voies_boucles/voies_boucles';
+import Annees from './components/Annees/annees';
+import printIcon from 'Assets/img/print.svg';
 import { getHouses, getMiroirs, getVoiesEtBoucles, getPersonnalYears, exctractBirthday } from './utils/utils';
 import { Route, withRouter } from 'react-router-dom';
 import { majors, minors } from './utils/img';
@@ -206,7 +207,12 @@ class App extends Component {
             majors={this.state.majors}/>}
           />
         </main>
-        <footer>D'après les travaux de George Colleuil</footer>
+        <footer>
+          <span>D'après les travaux de George Colleuil</span>
+          <button onClick={()=> window.print()}>
+            <img src={printIcon} />
+          </button>
+        </footer>
       </div>
     );
   }
