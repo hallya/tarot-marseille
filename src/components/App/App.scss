@@ -26,6 +26,9 @@
     @include s {
       padding: 0;
     }
+    article {
+      width: 100%;
+    }
   }
   
   input::-webkit-input-placeholder {

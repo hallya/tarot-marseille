@@ -27,22 +27,10 @@ class Solitaire extends Component {
   render() {
     return (
       <main className='arcane'>
-        
         <SideNav getUsersInfos={this.getUsersInfos} {...this.props}>
           <UserField firstname={'firstname'} lastname={'lastname'} birthday={'birthday'} />
         </SideNav>
         <SubRouter {...this.state} {...this.props}/>
-        {/* <Cards
-          slideAndShow={this.state.year === undefined ? 'hide-arcanes' : ''}
-          shadowAnimation={this.state.year !== undefined ? 'anim-shadow' : ''}
-          showDescription={this.state.year !== undefined ? 'show-description' : ''}
-          firstSetHouses={this.state.firstSetHouses}
-          secondSetHouses={this.state.secondSetHouses}
-          firstname={this.state.firstname}
-          lastname={this.state.lastname}
-          day={this.state.day}
-          month={this.state.month}
-          year={this.state.year}/> */}
       </main>
     );
   }

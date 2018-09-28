@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import './Default.scss';
 
 const Default = () => (
-  <p>Entrez votre date de naissance</p>
+  <article>
+    <p>Entrez votre date de naissance</p>
+  </article>
 )
 
 export default Default;

@@ -28,27 +28,11 @@ class Alliance extends Component {
   render() {
     return (
       <main className='arcane'>
-        <SideNav {...this.props} getUsersInfos={this.getUsersInfos}>
+        <SideNav  getUsersInfos={this.getUsersInfos} {...this.props}>
           <UserField firstname={'firstname'} lastname={'lastname'} birthday={'birthday'} />
           <UserField firstname={'firstnamePartner'} lastname={'lastnamePartner'} birthday={'birthdayPartner'} />
         </SideNav>
         <SubRouter {...this.state} {...this.props}/>
-        {/* <Cards
-          slideAndShow={this.state.yearPartner === undefined ? 'hide-arcanes' : ''}
-          shadowAnimation={this.state.yearPartner !== undefined ? 'anim-shadow' : ''}
-          showDescription={this.state.yearPartner !== undefined ? 'show-description' : ''}
-          firstSetHouses={this.state.firstSetHouses}
-          secondSetHouses={this.state.secondSetHouses}
-          firstname={this.state.firstname}
-          lastname={this.state.lastname}
-          firstnamePartner={this.state.firstnamePartner}
-          lastnamePartner={this.state.lastnamePartner}
-          day={this.state.day}
-          month={this.state.month}
-          year={this.state.year}
-          dayPartner={this.state.dayPartner}
-          monthPartner={this.state.monthPartner}
-          yearPartner={this.state.yearPartner}/> */}
       </main>
     );
   }

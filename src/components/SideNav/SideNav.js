@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { subRoutes } from '../SubRouter/config';
+import { subRoutes } from './config';
 import Form from '../Form/Form';
 import './SideNav.scss';
 

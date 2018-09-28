@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { majors } from '../../utils/img';
 import './miroirs.scss';
 
-const Miroirs= ({miroirs, majors}) => {
+const Miroirs= ({ miroirs }) => {
   return (
-    <section className='miroirs'>
+    <article className='miroirs'>
       {
         miroirs
           ? <ul className='miroirs'>
@@ -29,7 +30,7 @@ const Miroirs= ({miroirs, majors}) => {
             </ul>
           : <p>Entrez votre date de naissance dans l'onglet Arcanes ou Alliance</p>
       }
-    </section>
+    </article>
   )
 }
 

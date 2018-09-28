@@ -1,15 +1,16 @@
 import React from 'react';
 import './Annees.scss';
 import PropTypes from 'prop-types';
+import { majors } from '../../utils/img';
 
-const Annees = ({year, annees, majors}) => { 
+const Annees = ({ year, personnalYears }) => { 
   return (
     <section className='annees-personnelles'>
       {
-        annees
+        personnalYears
           ? <ul className="list-annees">
             {
-              annees.map((value, index) =>
+              personnalYears.map((value, index) =>
                 <li key={index} className="annees">
                   <img src={majors[value]} alt={value} />
                   <p>{year + index}</p>

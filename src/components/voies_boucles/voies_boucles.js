@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const VoiesEtBoucles = ({voies, boucles}) => { 
   return (
-    <section className='voies-boucles'>
+    <article className='voies-boucles'>
       {
         voies && <h2 className="voies" >Voies</h2>
       }
@@ -32,7 +32,7 @@ const VoiesEtBoucles = ({voies, boucles}) => {
               }
             </ul>
       }
-    </section>
+    </article>
   )
 }
 
