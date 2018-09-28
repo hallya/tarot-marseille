@@ -1,0 +1,28 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { subRoutes } from '../SubRouter/config';
+import Form from '../Form/Form';
+import './SideNav.scss';
+
+const SideNav = (props) => (
+  <section className="sidenav">
+    <Form {...props}>
+      { props.children }
+    </Form>
+    <nav>
+      <ul className="sidenav">
+        {
+          subRoutes.map(({ path, name }) => (
+            <li>
+              <NavLink key={`link${path}`} activeClassName="rendered" to={props.match.url + path}>
+                {name}
+              </NavLink>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </section>
+)
+
+export default SideNav;

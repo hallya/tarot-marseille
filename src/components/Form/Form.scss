@@ -1,0 +1,64 @@
+@import 'Styles/vars.scss';
+
+article.settings {
+  margin: 0 auto;
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap column;
+
+    fieldset {
+      border: none;
+      background: rgba(0, 0, 0, 0.226);
+      border-radius: 5px;
+      display: flex;
+      flex-flow: column wrap;
+      margin: 5px 0;
+    }
+
+    button.user {
+      background: rgba(0, 0, 0, 0.226);
+      border: rgba(0, 0, 0, 0.226);
+      border-radius: 5px;
+      color: $selected;
+      padding: 5px 0;
+      margin: 3px;
+    }
+
+    input.user {
+      border: none;
+      color: $not-selected;
+      font-weight: 100;
+      background-color: transparent !important;
+      font-size: 1em;
+      font-family: $font;
+
+      &[type='submit'] {
+        width: 50px;
+      }
+
+      &[name='currentYear'] {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.226);
+        border-radius: 5px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      box-shadow: 0 0 0px 1000px #627f95 inset;
+      background: transparent;
+      -webkit-text-fill-color: white;
+    }
+  }
+}

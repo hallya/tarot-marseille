@@ -178,11 +178,11 @@ export const getVoiesEtBoucles = ({m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11,
   }
 }
 
-export const getPersonnalYears = ( m6, birth ) => {
+export const getPersonnalYears = ({ m6 }, { year }) => {
   let personnalYears = [],
-    i = birth + 101;
-  for (; birth < i; birth++) {
-    personnalYears.push(reduceNumberIfNecessary(m6 + reducerOrNot(birth), 22))
+    i = year + 101;
+  for (; year < i; year++) {
+    personnalYears.push(reduceNumberIfNecessary(m6 + reducerOrNot(year), 22))
   }
   return {personnalYears}
 }
@@ -195,4 +195,51 @@ export const exctractBirthday = (date) => {
     return date.value.split(date.value.match(separator)[0]).map(value => Number(value))
   }
   else throw error('The Date is not valid');
+}
+
+export const handleSubmit = (e) => {
+
+  const form = e.currentTarget.elements, data = {};
+
+  e.preventDefault();
+
+  if (form['birthdayPartner']) {
+    let [yearPartner, monthPartner, dayPartner] = exctractBirthday(form['birthdayPartner']);
+    
+    [yearPartner, monthPartner, dayPartner] = !navigator.userAgent.includes('Chrome') && !navigator.userAgent.includes('Firefox')
+      ? [dayPartner, monthPartner, yearPartner]
+      : [yearPartner, monthPartner, dayPartner]
+    
+    data.firstnamePartner = form['firstnamePartner'].value;
+    data.lastnamePartner = form['lastnamePartner'].value;
+    data.yearPartner = yearPartner;
+    data.monthPartner = monthPartner;
+    data.dayPartner = dayPartner;
+  }
+
+  let [year, month, day] = exctractBirthday(form['birthday']),
+    date = new Date();
+
+  [year, month, day] = !navigator.userAgent.includes('Chrome') && !navigator.userAgent.includes('Firefox')
+    ? [day, month, year]
+    : [year, month, day]
+
+  year = year && year.toString().length > 4 ? year.toString().slice(1) : year;
+  
+  data.firstname = form['firstname'].value;
+  data.lastname = form['lastname'].value;
+  data.birthday = form['birthday'].value;
+  data.currentYear = date.getFullYear();
+  data.year = year;
+  data.month = month;
+  data.day = day;
+  data.miroir13 = [];
+  data.miroir17 = [];
+  data.miroir22 = [];
+    
+  if (form['currentYear'].value) {
+    data.currentYear = Number(form['currentYear'].value);
+  }
+
+  return data;
 }

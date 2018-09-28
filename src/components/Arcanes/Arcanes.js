@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Signature from 'Components/User/signature';
+import { majors, minors } from '../../utils/img';
+import './Arcanes.scss';
 
 const Cards = ({
-  slideAndShow,
+  shadowAnimation,
+  showDescription,
   firstSetHouses,
   secondSetHouses,
   firstname,
@@ -15,19 +18,22 @@ const Cards = ({
   year,
   dayPartner,
   monthPartner,
-  yearPartner,
-  shadowAnimation,
-  showDescription,
-  majors,
-  minors,
+  yearPartner
 }) => (
-  <section className={`results ${slideAndShow}`}>
+  <article className={`results ${year !== 'undefined' ? '' : 'hide-arcanes'}`}>
     <ul className='first'>
       {
-        firstSetHouses && firstSetHouses.map((card, i) => <li key={i} className={`m${i + 1}`}>
-          <img src={majors[firstSetHouses[i]]} className={shadowAnimation} alt=''/>
-            <p className={`description ${showDescription}`}>{`Maison ${i + 1}`}</p>
-          </li>
+        firstSetHouses && firstSetHouses.map((card, i) => (
+          <li key={i} className={`m${i + 1}`}>
+            <figure>
+                <picture>  
+                  <img src={majors[firstSetHouses[i]]} className={year !== undefined ? 'anim-shadow' : ''} alt='' />
+                </picture>
+                <figcaption className={`description ${year !== 'undefined' ? 'show-description' : ''}`}>
+                  {`Maison ${i + 1}`}
+                </figcaption>
+            </figure>
+        </li>)
         )
       }
     </ul>
@@ -42,13 +48,21 @@ const Cards = ({
         }  
       </li>
       {
-        secondSetHouses &&  secondSetHouses.map((card, i) => <li key={i} className={`m${i + 13}`}>
-          <img src={i === 0 ? majors[secondSetHouses[i]] : minors[secondSetHouses[i]]} className={shadowAnimation} alt='' />
-          <p className={`description ${showDescription}`}>{`Maison ${i + 13}`}</p>
-        </li>)
+          secondSetHouses && secondSetHouses.map((card, i) => (
+            <li key={i} className={`m${i + 13}`}>
+              <figure>
+                <picture>
+                  <img src={i === 0 ? majors[secondSetHouses[i]] : minors[secondSetHouses[i]]} className={shadowAnimation} alt='' />
+                </picture>
+                <figcaption className={`description ${year !== 'undefined' ? 'show-description' : ''}`}>
+                  {`Maison ${i + 13}`}
+                </figcaption>
+              </figure>
+            </li>
+          ))
       }
     </ul>
-  </section>
+  </article>
 )
 
 Cards.propTypes = {

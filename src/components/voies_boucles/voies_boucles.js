@@ -1,5 +1,5 @@
 import React from 'react';
-import './voies_boucles.scss';
+import './Voies_Boucles.scss';
 import PropTypes from 'prop-types';
 
 const VoiesEtBoucles = ({voies, boucles}) => { 

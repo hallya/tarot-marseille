@@ -1,6 +1,4 @@
-.voies-boucles {
-  width: 90%;
-  margin: auto;
+section.voies-boucles {
   height: 85vh;
   display: flex;
   align-content: center;
@@ -38,9 +36,5 @@
   }
   .list-boucles {
     order: 4;
-  }
-  p {
-    color: #00000052;
-    font-size: 1.5em;
   }
 }

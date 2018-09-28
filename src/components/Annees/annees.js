@@ -1,5 +1,5 @@
 import React from 'react';
-import './annees.scss';
+import './Annees.scss';
 import PropTypes from 'prop-types';
 
 const Annees = ({year, annees, majors}) => { 

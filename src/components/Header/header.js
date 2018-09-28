@@ -1,32 +1,18 @@
 import React from 'react';
 import './header.scss';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Header = ({activeTab}) => {
+const Header = () => {
+
   return (
     <header>
       <nav>
         <ul>
-          <li className={activeTab === '/arcanes' ? 'selected':''}>
-            <Link to='/arcanes'>Arcanes</Link>
+          <li>
+            <NavLink activeClassName="selected" to='/solitaire'>Solitaire</NavLink>
           </li>
-          <li className={activeTab === '/alliance' ? 'selected':''}>
-            <Link to='/alliance'>Alliance</Link>
-          </li>
-          <li className={activeTab === '/miroirs-13' ? 'selected':''}>
-            <Link to='/miroirs-13'>Miroirs 13</Link>
-          </li>
-          <li className={activeTab === '/miroirs-17' ? 'selected':''}>
-            <Link to='/miroirs-17'>Miroirs 17</Link>
-          </li>
-          <li className={activeTab === '/miroirs-22' ? 'selected':''}>
-            <Link to='/miroirs-22'>Miroirs 22</Link>
-          </li>
-          <li className={activeTab === '/voies-boucles' ? 'selected':''}>
-            <Link to='/voies-boucles'>Voies & boucles</Link>
-          </li>
-          <li className={activeTab === '/annees-personnelles' ? 'selected':''}>
-            <Link to='/annees-personnelles'>Années personnelles</Link>
+          <li>
+            <NavLink activeClassName="selected" to='/alliance'>Alliance</NavLink>
           </li>
         </ul>
       </nav>

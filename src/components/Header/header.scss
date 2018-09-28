@@ -14,17 +14,20 @@ header {
         user-select: none;
         display: flex;
 
-        &.selected a {
-          padding: 3px;
-          border: 2px solid #9ec6ff83;
-          color: #ffffff;
-        }
         a {
-          border-radius: 10px;
+          // border-radius: 10px;
           padding: 5px;
-          color: white;
+          color: rgba(255, 255, 255, .5);
           font-weight: 100;
           text-decoration: none;
+          border-width: 10px;
+          transition: .2s ease-in-out;
+          padding: 3px;
+
+          &.selected {
+            color: white;
+            border-bottom: 1px solid;
+          }
         }
       }
   }
