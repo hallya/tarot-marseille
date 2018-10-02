@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { HashRouter as Router } from 'react-router-dom'
 import App from './components/App/App';
 import './index.scss';
+import './styles/print.scss';
 
 ReactDOM.render(
   <Router basename={process.env.PUBLIC_URL}>

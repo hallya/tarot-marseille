@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SubRouter from '../SubRouter/SubRouter';
 import UserField from '../User/fieldset';
 import SideNav from '../SideNav/SideNav';
+import Content from '../Content/Content';
 import { handleSubmit, getHouses, getMiroirs, getVoiesEtBoucles, getPersonnalYears } from '../../utils/utils';
 import { initialState } from '../../utils/states';
 import './Solitaire.scss';
@@ -21,6 +22,9 @@ class Solitaire extends Component {
       voiesEtBoucles = getVoiesEtBoucles(houses),
       personnalYears = getPersonnalYears(houses, infos),
       nextState = Object.assign({}, infos, houses, miroirs, voiesEtBoucles, personnalYears);
+    
+    this.props.history.push('/#' + this.props.match.url + '/arcanes');
+    
     this.setState(nextState);
   }
 
@@ -30,7 +34,9 @@ class Solitaire extends Component {
         <SideNav getUsersInfos={this.getUsersInfos} {...this.props}>
           <UserField firstname={'firstname'} lastname={'lastname'} birthday={'birthday'} />
         </SideNav>
-        <SubRouter {...this.state} {...this.props}/>
+        <Content>
+          <SubRouter {...this.state} {...this.props}/>
+        </Content>
       </main>
     );
   }

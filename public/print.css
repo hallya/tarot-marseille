@@ -12,11 +12,11 @@
       box-shadow: none !important;
       text-shadow: none !important;
   }
-  body > *:not(section.results) {
+  body > *:not(article.arcanes) {
     display: none !important;
   }
   @page {
-    margin: 0cm;
+    margin: 0cm !important;
   }
   header,
   footer,
@@ -39,42 +39,39 @@
     justify-content: center !important;
     align-content: center !important;
     align-items: center !important;
-    ul {
-      li {
-        color: black !important;
-        margin: .05cm 0 !important;
-        padding: 0 !important;
-        img {
-          height: 1.5cm !important;
-          width: auto !important;
-        }
-        p {
-          color: black !important;
-        }
-        figcaption {
-          margin: 0 !important;
-          &.show-description {
-            margin: 0 !important;
-          }
-        }
-      }
-    }
-    ul.first {
-      width: 10cm !important;
-
-      .m4 {
-        margin-right: 20% !important;
-      }
-      .m6 {
-        margin: 0 0 10px 10% !important;
-      }
-      .m8 {
-        margin: 0 10% 10px 0 !important;
-      }
-    }
-    ul.second {
-      width: 3cm !important;
-      padding: 0 !important;
-    }
+  }
+  article.arcanes ul li {
+    color: black !important;
+    margin: .05cm 0 !important;
+    padding: 0 !important;
+  }
+  article.arcanes ul li img {
+    height: .7cm !important;
+    width: auto !important;
+  }
+  article.arcanes ul li p {
+    color: black !important;
+  }
+  article.arcanes ul li figcaption {
+    margin: 0 !important;
+  }
+  article.arcanes ul li figcaption .show-description {
+    margin: 0 !important;
+  }
+  article.arcanes ul.first {
+    width: 10cm !important;
+  }
+  article.arcanes ul.first .m4 {
+    margin-right: 20% !important;
+  }
+  article.arcanes ul.first .m6 {
+    margin: 0 0 10px 10% !important;
+  }
+  article.arcanes ul.first .m8 {
+    margin: 0 10% 10px 0 !important;
+  }
+  article.arcanes ul.second {
+    width: 3cm !important;
+    padding: 0 !important;
   }
 }

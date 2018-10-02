@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Default.scss';
 
 const Default = () => (
-  <article>
+  <article className="default">
     <p>Entrez votre date de naissance</p>
   </article>
 )

@@ -1,4 +1,11 @@
-p {
-  color: #00000052;
-  font-size: 1.5em;
+
+article.default {
+  display: flex;
+  height: 100%;
+
+  p {
+    color: #00000052;
+    font-size: 1.5em;
+    margin: auto;
+  }
 }

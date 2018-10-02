@@ -140,6 +140,19 @@ export const getMiroirs = (state) => {
   return { miroir13, miroir17, miroir22 };
 }
 
+// export const checkVoies = (houses, voiesDB, index = 0, ) => {
+//   if (voiesDB[houses[index]] && typeof voiesDB[houses[index]] === 'string') {
+//     return voiesDB[houses[index]];
+//   }
+//   if (voiesDB[houses[index]] && typeof voiesDB[houses[index]] === 'object') {
+//     return checkVoies(houses, voiesDB[houses[index]], 0);
+//   }
+//   if (voiesDB[houses[index]] === undefined) {
+//     return checkVoies(houses, voiesDB[houses[index]], 0);
+//   }
+//   return 
+// }
+
 export const getVoiesEtBoucles = ({m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14 }) => {
   const
     houses = [m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14].sort((a, b) => a - b),
@@ -190,7 +203,6 @@ export const getPersonnalYears = ({ m6 }, { year }) => {
 export const exctractBirthday = (date) => {
   const regexExp = /(\d{1,2}[\-\.\/\" "]){2}\d{1,4}/;
   const separator = /[-./" "]/;
-  
   if (date.value.match(regexExp)) {
     return date.value.split(date.value.match(separator)[0]).map(value => Number(value))
   }
@@ -200,15 +212,9 @@ export const exctractBirthday = (date) => {
 export const handleSubmit = (e) => {
 
   const form = e.currentTarget.elements, data = {};
-
   e.preventDefault();
-
   if (form['birthdayPartner']) {
     let [yearPartner, monthPartner, dayPartner] = exctractBirthday(form['birthdayPartner']);
-    
-    [yearPartner, monthPartner, dayPartner] = !navigator.userAgent.includes('Chrome') && !navigator.userAgent.includes('Firefox')
-      ? [dayPartner, monthPartner, yearPartner]
-      : [yearPartner, monthPartner, dayPartner]
     
     data.firstnamePartner = form['firstnamePartner'].value;
     data.lastnamePartner = form['lastnamePartner'].value;
@@ -219,10 +225,6 @@ export const handleSubmit = (e) => {
 
   let [year, month, day] = exctractBirthday(form['birthday']),
     date = new Date();
-
-  [year, month, day] = !navigator.userAgent.includes('Chrome') && !navigator.userAgent.includes('Firefox')
-    ? [day, month, year]
-    : [year, month, day]
 
   year = year && year.toString().length > 4 ? year.toString().slice(1) : year;
   

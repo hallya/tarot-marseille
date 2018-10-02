@@ -1,5 +1,5 @@
 .annees-personnelles {
-  height: 85vh;
+  // height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,8 +10,9 @@
     flex-flow: wrap row;
     list-style: none;
     padding: 0;
+    margin: 0;
     overflow: auto;
-    height: 85vh;
+    height: 92vh;
 
     .annees {
       width: 9%;

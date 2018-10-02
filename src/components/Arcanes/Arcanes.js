@@ -20,7 +20,7 @@ const Cards = ({
   monthPartner,
   yearPartner
 }) => (
-  <article className={`results ${year !== 'undefined' ? '' : 'hide-arcanes'}`}>
+  <article className={`arcanes ${year !== 'undefined' ? '' : 'hide-arcanes'}`}>
     <ul className='first'>
       {
         firstSetHouses && firstSetHouses.map((card, i) => (
@@ -41,7 +41,7 @@ const Cards = ({
       <li className='fullname' >
         <Signature firstname={firstname} lastname={lastname} day={day} month={month} year={year} />
         {
-          yearPartner && 'et'
+          yearPartner && <p>et</p>
         }
         {
           yearPartner && <Signature firstname={firstnamePartner} lastname={lastnamePartner} day={dayPartner} month={monthPartner} year={yearPartner} />

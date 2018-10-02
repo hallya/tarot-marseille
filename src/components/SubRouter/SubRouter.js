@@ -6,7 +6,7 @@ import Miroirs from '../Miroirs/miroirs';
 
 
 const SubRouter = (props) => (
-  <Switch>
+  <Switch history={props.history}>
     {
       subRoutes.map(({ path, exact, Component }) => (
         <Route

@@ -13,8 +13,8 @@ const SideNav = (props) => (
       <ul className="sidenav">
         {
           subRoutes.map(({ path, name }) => (
-            <li>
-              <NavLink key={`link${path}`} activeClassName="rendered" to={props.match.url + path}>
+            <li key={`link${path}`}>
+              <NavLink  activeClassName="rendered" to={props.match.url + path}>
                 {name}
               </NavLink>
             </li>

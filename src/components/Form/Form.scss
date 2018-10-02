@@ -7,14 +7,19 @@ article.settings {
     display: flex;
     justify-content: center;
     flex-flow: wrap column;
+    font-size: 14px;
 
     fieldset {
+      font-size: 14px;
       border: none;
+      box-sizing: border-box;
       background: rgba(0, 0, 0, 0.226);
       border-radius: 5px;
       display: flex;
       flex-flow: column wrap;
       margin: 5px 0;
+      padding: 5px;
+      width: 100%;
     }
 
     button.user {
@@ -25,13 +30,30 @@ article.settings {
       padding: 5px 0;
       margin: 3px;
     }
-
+    .react-date-picker__button {
+      input,
+      button,
+      div {
+        color: $not-selected;
+      }
+    }
+    div.react-date-picker__button {
+      border: none;
+    }
+    .react-date-picker__button__icon:enabled svg g, 
+    .react-date-picker__button__icon:enabled svg g {
+      stroke: $not-selected;
+    }
+    .react-date-picker__button__icon:enabled:hover svg g, 
+    .react-date-picker__button__icon:enabled:focus svg g {
+      stroke: $selected;
+    }
     input.user {
       border: none;
       color: $not-selected;
       font-weight: 100;
       background-color: transparent !important;
-      font-size: 1em;
+      font-size: 14px;
       font-family: $font;
 
       &[type='submit'] {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Signature = ({firstname, lastname, day, month, year}) => (
-  <p className='fullname' >
+  <p>
     {firstname} {lastname}
     <br />
     né(e) le {day}.{month}.{year}

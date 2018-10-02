@@ -5,8 +5,7 @@ import { handleSubmit, getHouses, getMiroirs, getVoiesEtBoucles } from '../../ut
 import { initialState } from '../../utils/states';
 import './Alliance.scss';
 import SideNav from '../SideNav/SideNav';
-
-
+import Content from '../Content/Content';
 
 class Alliance extends Component {
 
@@ -23,6 +22,9 @@ class Alliance extends Component {
       miroirs = getMiroirs(houses),
       voiesEtBoucles = getVoiesEtBoucles(houses),
       nextState = Object.assign({}, infos, houses, miroirs, voiesEtBoucles);
+    
+    this.props.history.push('/#' + this.props.match.url + '/arcanes');
+    
     this.setState(nextState);
   }
   render() {
@@ -32,7 +34,9 @@ class Alliance extends Component {
           <UserField firstname={'firstname'} lastname={'lastname'} birthday={'birthday'} />
           <UserField firstname={'firstnamePartner'} lastname={'lastnamePartner'} birthday={'birthdayPartner'} />
         </SideNav>
-        <SubRouter {...this.state} {...this.props}/>
+        <Content>
+          <SubRouter {...this.state} {...this.props}/>
+        </Content>
       </main>
     );
   }
