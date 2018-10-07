@@ -4,7 +4,7 @@ import SubRouter from '../SubRouter/SubRouter';
 import { handleSubmit, getHouses, getMiroirs, getVoiesEtBoucles } from '../../utils/utils';
 import { initialState } from '../../utils/states';
 import './Alliance.scss';
-import SideNav from '../SideNav/SideNav';
+import SideBar from '../SideBar/SideBar';
 import Content from '../Content/Content';
 
 class Alliance extends Component {
@@ -30,10 +30,10 @@ class Alliance extends Component {
   render() {
     return (
       <main className='arcane'>
-        <SideNav  getUsersInfos={this.getUsersInfos} {...this.props}>
+        <SideBar  getUsersInfos={this.getUsersInfos} {...this.props}>
           <UserField firstname={'firstname'} lastname={'lastname'} birthday={'birthday'} />
           <UserField firstname={'firstnamePartner'} lastname={'lastnamePartner'} birthday={'birthdayPartner'} />
-        </SideNav>
+        </SideBar>
         <Content>
           <SubRouter {...this.state} {...this.props}/>
         </Content>
