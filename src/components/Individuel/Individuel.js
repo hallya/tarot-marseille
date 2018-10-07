@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import SubRouter from '../SubRouter/SubRouter';
 import UserField from '../User/fieldset';
-import SideNav from '../SideNav/SideNav';
+import SideBar from '../SideBar/SideBar';
 import Content from '../Content/Content';
 import { handleSubmit, getHouses, getMiroirs, getVoiesEtBoucles, getPersonnalYears } from '../../utils/utils';
 import { initialState } from '../../utils/states';
-import './Solitaire.scss';
+import './Individuel.scss';
 
 class Solitaire extends Component {
   constructor(props) {
@@ -31,9 +31,9 @@ class Solitaire extends Component {
   render() {
     return (
       <main className='arcane'>
-        <SideNav getUsersInfos={this.getUsersInfos} {...this.props}>
+        <SideBar getUsersInfos={this.getUsersInfos} {...this.props}>
           <UserField firstname={'firstname'} lastname={'lastname'} birthday={'birthday'} />
-        </SideNav>
+        </SideBar>
         <Content>
           <SubRouter {...this.state} {...this.props}/>
         </Content>
