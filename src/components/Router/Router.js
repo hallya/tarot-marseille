@@ -1,21 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import history from '../../utils/history'
-import Solitaire from '../Solitaire/Solitaire';
-import Alliance from '../Alliance/Alliance';
-
-const appRoutes = [
-  {
-    path: '/solitaire',
-    exact: false,
-    Component: Solitaire
-  },
-  {
-    path: '/alliance',
-    exact: false,
-    Component: Alliance
-  }
-];
+import history from '../../utils/history';
+import { appRoutes } from './config';
 
 const MainRouter = (props) => (
   <Switch>
@@ -24,7 +10,7 @@ const MainRouter = (props) => (
         <Route key={`route${path}`} exact={exact} path={path} render={({match}) => <Component match={match} history={history} {...props} />}/>
       ))
     }
-    <Redirect from="*" to="/solitaire"/>
+    <Redirect from="*" to="/individuel"/>
   </Switch>
 );
 
