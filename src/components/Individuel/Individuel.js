@@ -19,11 +19,9 @@ class Solitaire extends Component {
       infos = handleSubmit(e),
       houses = getHouses(infos),
       miroirs = getMiroirs(houses),
-      voiesEtBoucles = getVoiesEtBoucles(houses),
+      voiesEtBoucles = getVoiesEtBoucles(houses.firstSetHouses.concat(houses.secondSetHouses)),
       personnalYears = getPersonnalYears(houses, infos),
       nextState = Object.assign({}, infos, houses, miroirs, voiesEtBoucles, personnalYears);
-    
-    this.props.history.push('/#' + this.props.match.url + '/arcanes');
     
     this.setState(nextState);
   }
@@ -35,7 +33,7 @@ class Solitaire extends Component {
           <UserField firstname={'firstname'} lastname={'lastname'} birthday={'birthday'} />
         </SideBar>
         <Content>
-          <SubRouter {...this.state} {...this.props}/>
+          <SubRouter {...this.state} {...this.props} />
         </Content>
       </main>
     );
