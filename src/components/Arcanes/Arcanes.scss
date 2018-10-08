@@ -1,3 +1,5 @@
+@import 'Styles/vars.scss';
+
 article.arcanes {
   display: flex;
   justify-content: center;
@@ -20,7 +22,6 @@ article.arcanes {
       display: flex;
       list-style: none;
       flex-flow: wrap row;
-      align-content: center;
       justify-content: center;
       padding: 0;
       margin: 0;
@@ -30,17 +31,20 @@ article.arcanes {
         display: flex;
         justify-content: center;
         figure {
-          height: auto;
-          width: 5vw;
-          margin: 0;
-          padding: 0;
+          height: 16.5vh;
+          width: auto;
+          margin: 2px 0;
+          padding: 2px 5px;
+          background: $card-bg;
+          border-radius: 5px;
+          transition: 1.7s ease .9s;
+          box-shadow: 0px 7px 2px -2px #00000060;
+          will-change: transform;
+          will-change: box-shadow;
+
           picture {
             height: auto;
             width: auto;
-            box-shadow: 0 0 0 0#00000060;
-            transition: 1.7s ease .9s;
-            will-change: transform;
-            will-change: box-shadow;
 
             img {
               width: auto;
@@ -48,13 +52,12 @@ article.arcanes {
               transition: .2s ease-in .5s;
               &.anim-shadow {
                 transform: translateY(0);
-                box-shadow: 0px 7px 2px -2px #00000060;
               }
             }
           }
 
           figcaption {
-            color: white;
+            color: black;
             font-size: 0.8em;
             transition: 1s ease 1.6s;
             margin: 5px auto 0 auto;
@@ -72,10 +75,11 @@ article.arcanes {
 
     &.first {
       width: 50%;
+      align-content: space-evenly;
 
       li {
         padding: 0;
-        height: 19%;
+        height: calc(20% - 10px);
       }
 
       .m12 {
@@ -89,20 +93,9 @@ article.arcanes {
         margin: 0 0 10px 10%;
         order: 2;
 
-        picture {
-          margin: -5% -30% 0 0;
-          transition: 1.7s ease .9s;
-          will-change: transform;
-          will-change: box-shadow;
-          transform: translateY(-4em);
-          box-shadow: 0 0 0 0#00000060;
-
-          img {
-            &.anim-shadow {
-              transform: rotate(-30deg) translateY(0);
-              box-shadow: 0px 7px 2px -2px #00000060;
-            }
-          }
+        figure {
+          box-shadow: -6px 7px 2px -2px #00000060;
+          transform: rotate(-30deg) translateY(0);
         }
       }
 
@@ -115,20 +108,9 @@ article.arcanes {
         width: 30%;
         margin: 0 10% 10px 0;
         order: 4;
-
-        picture {
-          margin: -5% 0 0 -30%;
-          transition: 1.7s ease .9s;
-          will-change: transform;
-          will-change: box-shadow;
-          transform: translateY(-4em);
-          box-shadow: 0 0 0 0#00000060;
-          img {
-            &.anim-shadow {
-              transform: rotate(30deg) translateY(0);
-              box-shadow: 0px 7px 2px -2px #00000060;
-            }
-          }
+        figure {
+          box-shadow: 6px 7px 2px -2px #00000060;
+          transform: rotate(30deg) translateY(0);
         }
       }
 
@@ -157,20 +139,9 @@ article.arcanes {
         order: 9;
         width: 30%;
         margin: 10px 0 0 10%;
-
-        picture {
-          margin: 5% -30% 0 0;
-          box-shadow: 0 0 0 0#00000060;
-          transition: 1.7s ease .9s;
-          will-change: transform;
-          will-change: box-shadow;
-          transform: translateY(4em);
-          img {
-            &.anim-shadow {
-              transform: rotate(30deg) translateY(0);
-              box-shadow: 0px 7px 2px -2px #00000060;
-            }
-          }
+        figure {
+          box-shadow: 6px 7px 2px -2px #00000060;
+          transform: rotate(30deg) translateY(0);
         }
       }
 
@@ -183,20 +154,9 @@ article.arcanes {
         order: 11;
         width: 30%;
         margin: 10px 10% 0 0;
-
-        picture {
-          margin: 5% 0 0 -30%;
-          box-shadow: 0 0 0 0#00000060;
-          transition: 1.7s ease .9s;
-          will-change: transform;
-          transform: translateY(4em);
-
-          img {
-            &.anim-shadow {
-              transform: rotate(-30deg) translateY(0);
-              box-shadow: 0px 7px 2px -2px #00000060;
-            }
-          }
+        figure {
+          box-shadow: -6px 7px 2px -2px #00000060;
+          transform: rotate(-30deg) translateY(0);
         }
       }
 
@@ -208,6 +168,7 @@ article.arcanes {
 
     &.second {
       width: 15%;
+      align-content: center;
       margin-right: 10%;
       li {
         width: 100%;
@@ -227,18 +188,10 @@ article.arcanes {
 
       .m13 {
         order: 14;
-
-        // img {
-        //   transform: translateY(-4em);
-        // }
       }
 
       .m14 {
         order: 15;
-
-        // img {
-        //   transform: translateY(4em);
-        // }
       }
     }
   }
