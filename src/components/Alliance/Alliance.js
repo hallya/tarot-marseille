@@ -20,10 +20,8 @@ class Alliance extends Component {
       infos = handleSubmit(e),
       houses = getHouses(infos),
       miroirs = getMiroirs(houses),
-      voiesEtBoucles = getVoiesEtBoucles(houses),
+      voiesEtBoucles = getVoiesEtBoucles(houses.firstSetHouses.concat(houses.secondSetHouses)),
       nextState = Object.assign({}, infos, houses, miroirs, voiesEtBoucles);
-    
-    this.props.history.push('/#' + this.props.match.url + '/arcanes');
     
     this.setState(nextState);
   }
