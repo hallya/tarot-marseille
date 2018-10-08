@@ -8,11 +8,13 @@ const SideNav = ({match}) => (
     <ul className="sidenav">
       {
         subRoutes.map(({ path, name }) => (
-          <li key={`link${path}`}>
-            <NavLink  activeClassName="rendered" to={match.url + path}>
-              {name}
-            </NavLink>
-          </li>
+          match.url === '/alliance' && path === '/annees-personnelle'
+          ? null
+          : <li key={`link${path}`}>
+              <NavLink  activeClassName="rendered" to={match.url + path}>
+                {name}
+              </NavLink>
+            </li>
         ))
       }
     </ul>

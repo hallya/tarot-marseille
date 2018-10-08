@@ -11,19 +11,19 @@ export const subRoutes = [
     name: 'Arcanes'
   },
   {
-    path: '/miroirs-13',
+    path: '/miroirs13',
     exact: true,
     Component: Miroirs,
     name: 'Miroirs à 13'
   },
   {
-    path: '/miroirs-17',
+    path: '/miroirs17',
     exact: true,
     Component: Miroirs,
     name: 'Miroirs à 17',
   },
   {
-    path: '/miroirs-22',
+    path: '/miroirs22',
     exact: true,
     Component: Miroirs,
     name: 'Miroirs à 22',
