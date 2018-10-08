@@ -1,3 +1,5 @@
+@import 'Styles/vars.scss';
+
 article.miroirs {
   display: flex;
   align-items: center;
@@ -8,9 +10,7 @@ article.miroirs {
     border-radius: 45%;
     height: 70vh;
     width: 90%;
-    font-size: 1.5em;
     font-weight: 400;
-    color: #00000052;
     display: flex;
     align-items: baseline;
     flex-flow: wrap row;
@@ -18,22 +18,22 @@ article.miroirs {
 
     li {
       list-style: none;
-      color: #b50000c7;
       width: 33%;
-      font-size: 1.1em;
       margin: 10px;
       border-radius: 5px;
-      background: #ffffff69;
-      padding: 10px;
-
+      background: $card-bg;
+      padding: 5px;
+      
       .miroir-image {
-        width: 30%;
+        background: $card-bg;
+        width: 20%;
         order: 1;
-        padding: 0 10%;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 0 30px;
       }
       .miroir-title {
         order: 2;
-        font-size: .6em;
         padding: 2% 10%;
         margin: 0;
       }
@@ -45,16 +45,14 @@ article.miroirs {
 
         .combinaison-maison {
           font-weight: 100;
-          font-size: .6em;
           width: 92%;
           margin: 5px 0;
-          color: #1b3345cf;
         }
       }
     }
   }
   p {
-    color: #00000052;
+    color: black;
     font-size: 1.5em;
   }
 }
