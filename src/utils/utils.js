@@ -1,5 +1,5 @@
 import { miroirs } from './miroirsdb';
-import { Voies, Boucles } from './voies-boucles-db';
+import { voiesDB, bouclesDB } from './voies-boucles-db';
 import { error } from 'util';
 
 const reduceNumber = (num) => {
@@ -99,9 +99,9 @@ export const getMiroirs = (state) => {
   const { m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13 } = state,
     houses = { m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13 };
   let sortedHouses = [m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13].sort((a, b) => a - b),
-    miroir13 = [],
-    miroir17 = [],
-    miroir22 = [],
+    miroirs13 = [],
+    miroirs17 = [],
+    miroirs22 = [],
     existingCombinaisons = [];
   
   sortedHouses.forEach((a, index, array) => {
@@ -110,7 +110,7 @@ export const getMiroirs = (state) => {
         const title = a.toString() + b.toString(),
         reversedTitle = b.toString() + a.toString();
         if (combinaisonDoesntExist(a, b, 13, existingCombinaisons, title, reversedTitle)) {
-          miroir13.push({
+          miroirs13.push({
             title: miroirs[title].title,
             images: getMiroirImages(title),
             combinaisons: getMatchs(a,b, houses)
@@ -118,7 +118,7 @@ export const getMiroirs = (state) => {
           existingCombinaisons.push(title, reversedTitle);
         }
         if (combinaisonDoesntExist(a, b, 17, existingCombinaisons, title, reversedTitle)) {
-          miroir17.push({
+          miroirs17.push({
             title: miroirs[title].title,
             images: getMiroirImages(title),
             combinaisons: getMatchs(a,b, houses)
@@ -126,7 +126,7 @@ export const getMiroirs = (state) => {
           existingCombinaisons.push(title, reversedTitle);
         }
         if (combinaisonDoesntExist(a, b, 22, existingCombinaisons, title, reversedTitle)) {
-          miroir22.push({
+          miroirs22.push({
             title: miroirs[title].title,
             images: getMiroirImages(title),
             combinaisons: getMatchs(a,b, houses)
@@ -137,57 +137,56 @@ export const getMiroirs = (state) => {
     })
   })
 
-  return { miroir13, miroir17, miroir22 };
+  return { miroirs: { miroirs13, miroirs17, miroirs22 } };
 }
 
-// export const checkVoies = (houses, voiesDB, index = 0, ) => {
-//   if (voiesDB[houses[index]] && typeof voiesDB[houses[index]] === 'string') {
-//     return voiesDB[houses[index]];
-//   }
-//   if (voiesDB[houses[index]] && typeof voiesDB[houses[index]] === 'object') {
-//     return checkVoies(houses, voiesDB[houses[index]], 0);
-//   }
-//   if (voiesDB[houses[index]] === undefined) {
-//     return checkVoies(houses, voiesDB[houses[index]], 0);
-//   }
-//   return 
-// }
+const isObject = (value) => typeof value === 'object' && !Array.isArray(value);
 
-export const getVoiesEtBoucles = ({m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14 }) => {
-  const
-    houses = [m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14].sort((a, b) => a - b),
-    voiesDB = Object.assign({}, Voies),
-    matchsVoies = [],
-    matchsBoucles = [];
+const getBoucles = (houses) => {
+  const matchsBoucles = [];
   
-  houses.forEach(firstHouse => {
-    for (let firstLevel in voiesDB) {
-      if (Number(firstLevel) === firstHouse) {
-        houses.forEach(secondHouse => {
-          for (let secondLevel in voiesDB[firstLevel]) {
-            if (Number(secondLevel) === secondHouse ) {
-              houses.forEach(thirdHouse => {
-                for (let thirdLevel in voiesDB[firstLevel][secondLevel]) {
-                  if (Number(thirdLevel) === thirdHouse && matchsVoies.indexOf(voiesDB[firstLevel][secondLevel][thirdLevel]) === -1) { 
-                    matchsVoies.push(voiesDB[firstLevel][secondLevel][thirdLevel]);
-                  }
-                }
-              })
-            }
-          }
-        })
-      }
-    }
-  })
   for (let i = 0, count = 1; i < houses.length; i++) {
     if (count === 3) {
-      matchsBoucles.push(Boucles[houses[i]])
+      matchsBoucles.push({
+        card: houses[i],
+        message: bouclesDB[houses[i]]
+      })
     }
     houses[i] === houses[i + 1] ? count++ : count = 1
   }
+  return matchsBoucles;
+}
+
+const getVoies = (houses) => {
+  const voies = [];
+
+  (function iterateThroughVoiesDB(obj, houses, path = []) {
+    
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key) && houses.includes(key)) {
+        
+        if (isObject(obj[key])) {
+          iterateThroughVoiesDB(obj[key], houses, [...path, key])
+        }
+        
+        if (typeof obj[key] === 'string') {
+          voies.push({ path: [...path, key], message: obj[key] })
+        }
+      }
+    }
+  })(voiesDB, houses)
+
+  return voies;
+}
+
+export const getVoiesEtBoucles = (houses) => {
+  const housesFormated = houses
+    .sort((a, b) => a - b)
+    .map(value => value.toString());
+
   return {
-    voies: matchsVoies,
-    boucles: matchsBoucles
+    voies: getVoies(housesFormated),
+    boucles: getBoucles(housesFormated)
   }
 }
 
