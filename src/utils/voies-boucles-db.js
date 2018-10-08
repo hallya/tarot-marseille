@@ -1,4 +1,4 @@
-export const Voies = {
+export const voiesDB = {
   1: {
     4: {
       21: 'La voie de l’artiste'
@@ -85,7 +85,7 @@ export const Voies = {
   }
 }
 
-export const Boucles = {
+export const bouclesDB = {
   0: 'Boucle de l’Alchimiste',
   1: 'Boucle du Petit Prince',
   2: 'Boucle d’Isis',
