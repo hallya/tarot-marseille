@@ -1,6 +1,5 @@
 import { miroirs } from './miroirsdb';
 import { voiesDB, bouclesDB } from './voies-boucles-db';
-import { error } from 'util';
 
 const reduceNumber = (num) => {
   let decimals = []
@@ -199,14 +198,9 @@ export const getPersonnalYears = ({ m6 }, { year }) => {
   return {personnalYears}
 }
 
-export const exctractBirthday = (date) => {
-  const regexExp = /(\d{1,2}[\-\.\/\" "]){2}\d{1,4}/;
-  const separator = /[-./" "]/;
-  if (date.value.match(regexExp)) {
-    return date.value.split(date.value.match(separator)[0]).map(value => Number(value))
-  }
-  else throw error('The Date is not valid');
-}
+export const exctractBirthday = (date) => date.value
+  .split('-')
+  .map(value => Number(value));
 
 export const handleSubmit = (e) => {
 
