@@ -8,7 +8,7 @@ const Form = (props) => {
     <article className='settings'>
       <form onSubmit={getUsersInfos}>
         { children }
-        <input className='user' type='number' name='currentYear' placeholder={currentYear}></input>
+        <input className='user' type='number' name='currentYear' placeholder={`Année courante: ${currentYear}`}></input>
         <button className='user' type="submit">Valider</button>
       </form>
     </article>

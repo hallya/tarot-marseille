@@ -26,9 +26,10 @@ article.settings {
       background: rgba(0, 0, 0, 0.226);
       border: rgba(0, 0, 0, 0.226);
       border-radius: 5px;
+      font-size: 14px;
       color: $selected;
       padding: 5px 0;
-      margin: 3px;
+      margin: 5px 0;
     }
     .react-date-picker__button {
       input,
@@ -52,7 +53,7 @@ article.settings {
       border: none;
       color: $not-selected;
       font-weight: 100;
-      background-color: transparent !important;
+      background-color: transparent;
       font-size: 14px;
       font-family: $font;
 
@@ -64,6 +65,8 @@ article.settings {
         text-align: center;
         background: rgba(0, 0, 0, 0.226);
         border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
       }
 
       &:focus {
