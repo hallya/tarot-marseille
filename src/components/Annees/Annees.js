@@ -27,7 +27,6 @@ const Annees = ({ year, personnalYears }) => {
 
 Annees.propTypes = {
   year: PropTypes.number,
-  annees: PropTypes.array,
-  majors: PropTypes.array.isRequired
+  annees: PropTypes.array
 }
 export default Annees;
