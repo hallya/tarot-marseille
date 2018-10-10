@@ -1,11 +1,13 @@
 @import 'Styles/vars.scss';
+@import 'Styles/animations.scss';
 
-.annees-personnelles {
+article.annees-personnelles {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: slideUp 1s;
   
-  .list-annees {
+  ul.list-annees {
     display: flex;
     justify-content: space-around;
     flex-flow: wrap row;
@@ -15,13 +17,15 @@
     overflow: auto;
     height: 92vh;
 
-    .annees {
+    li.annees {
       width: 9%;
       color: black;
       background: $card-bg;
       margin: 5px;
       padding: 5px 0%;
       border-radius: 15px;
+      animation: shadowIn 1s;
+      box-shadow: 0px 7px 2px -2px #00000060;
 
       img {
         border-radius: 5px;
@@ -32,6 +36,7 @@
         color: black;
         font-size: .9em;
         font-weight: 100;
+        animation: fade 3s;
       }
     }
   }
