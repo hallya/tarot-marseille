@@ -6,7 +6,6 @@ import './Arcanes.scss';
 
 const Cards = ({
   shadowAnimation,
-  showDescription,
   firstSetHouses,
   secondSetHouses,
   firstname,
