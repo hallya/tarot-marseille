@@ -1,11 +1,22 @@
+@import 'Styles/vars.scss';
+@import 'Styles/animations.scss';
 
 article.default {
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 
   p {
-    color: #00000052;
+    color: rgb(68, 68, 68);
+    box-shadow: 0 0 12px -2px black;
     font-size: 1.5em;
+    font-weight: 600;
     margin: auto;
+    background: #e6e6e6;
+    position: absolute;
+    padding: 20px;
+    border-radius: 5px;
+    animation: fadeInZoomOut 1s;
   }
 }

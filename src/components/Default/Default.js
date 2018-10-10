@@ -1,16 +1,10 @@
 import React from 'react';
-import Message from '../Message/Message';
 import './Default.scss';
 
-const Default = (props) => {
-  console.log(props)
+const Default = ({children}) => {
   return (
     <article className="default">
-      <Message>
-        {
-          'Entrez votre date de naissance'
-        }
-      </Message>
+      {children}
     </article >
   )
 }
