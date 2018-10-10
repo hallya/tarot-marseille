@@ -12,13 +12,13 @@ const Boucles = ({ boucles }) => {
             <li key={index} className="boucle">
               <figure>
                 <picture>
-                  <img src={majors[boucle.card]}/>
+                  <img src={majors[boucle.card]} alt={`arcane numéro ${boucle.card}`}/>
                 </picture>
                 <figcaption>{boucle.message}</figcaption>
               </figure>
             </li>
           ))
-          : <li>Pas de boucles . . .</li>
+          : <li className="boucle">Pas de boucles . . .</li>
       }
     </ul>
   )

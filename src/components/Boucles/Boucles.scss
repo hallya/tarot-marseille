@@ -1,5 +1,9 @@
 @import 'Styles/vars.scss';
+@import 'Styles/animations.scss';
 
+h2.boucles {
+  order: 2;
+}
 ul.list-boucles {
   order: 4;
   width: 50%;
@@ -8,26 +12,34 @@ ul.list-boucles {
   margin: 0;
   height: 75vh;
   overflow: auto;
-  
+  animation: slideLeft 1s;
+
   li.boucle {
     background: rgba(255, 255, 255, 0.452);
     margin: 10px auto;
     width: 80%;
     padding: 10px 0;
     border-radius: 5px;
-
+    box-shadow: $boxShadowOnBg;
+    
     figure {
       margin: 0;
 
       img {
         height: 15vh;
         width: auto;
+        padding: 5px;
+        border-radius: 5px;
+        background: $card-bg;
+        box-shadow: $boxShadowOnEl;
       } 
       figcaption {
+        box-shadow: $boxShadowOnEl;
         background: $card-bg;
         margin: 10px auto 5px;
         border-radius: 5px;
         width: 80%;
+        animation: fade 3s;
       }
     }
   }
