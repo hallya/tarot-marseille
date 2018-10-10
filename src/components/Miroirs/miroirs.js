@@ -4,8 +4,10 @@ import { majors } from '../../utils/img';
 import './miroirs.scss';
 
 const Miroirs = ({ miroirs, path }) => {
+  const miroirType = path.match(/\d+/)[0];
   return (
     <article className='miroirs'>
+      <h2>Miroirs à {miroirType}</h2>
       <ul className='miroirs'>
       { 
         miroirs[path].length
