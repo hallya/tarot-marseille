@@ -7,18 +7,15 @@
   div:first-line,
   blockquote:first-line,
   li:first-line {
-      background: transparent !important;
-      color: #000 !important;
-      box-shadow: none !important;
-      text-shadow: none !important;
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
   body > *:not(section.results) {
     display: none !important;
   }
-  @page {
-    margin: 0cm;
-    size: landscape
-  }
+
   header,
   footer,
   section.sidenav,
@@ -28,6 +25,12 @@
   main, #root, {
     height: unset !important;
     width: unset !important;
+  }
+
+
+  @page {
+    margin: 0cm;
+    size: landscape;  
   }
   article.arcanes {
     background: white !important;
@@ -46,16 +49,17 @@
         margin: .05cm 0 !important;
         padding: 0 !important;
         img {
-          height: 2.2cm !important;
+          height: 8cm !important;
           width: auto !important;
         }
         p {
           color: black !important;
+          font-size: 9pt !important;
         }
         figcaption {
-          margin: 0 !important;
-          &.show-description {
+          &.description.show-description {
             margin: 0 !important;
+            font-size: 9pt;
           }
         }
       }
@@ -76,6 +80,108 @@
     ul.second {
       width: 3cm !important;
       padding: 0 !important;
+    }
+  }
+  article.miroirs {
+    h2 {
+      font-size: 10pt !important;
+      margin: 5pt 0 3pt !important;
+    }
+    ul {
+      height: auto;
+      width: 10cm;
+
+      li {
+        border: .5pt solid black;
+        margin: 3pt !important;
+        padding: 1pt !important;
+        display: inline;
+        padding: 1pt 0 !important;
+
+        img {
+          width: auto !important;
+          height: 35pt !important;
+          display: inline !important;
+          padding: 0 !important;
+          margin: 0 1pt !important;
+          margin: 0;
+        }
+        p {
+          font-size: 6pt !important;
+        }
+        ul {
+          padding: 0 !important;
+          margin: 0 auto !important;
+          width: 2cm !important;
+          
+          li {
+            border: none !important;
+            font-size: 5pt !important;
+            margin: 1pt auto !important;
+          }
+        }
+      }
+    }
+  }
+  article.voies-boucles {
+    height: 100vh !important;
+    h2 {
+      font-size: 10pt !important;
+      margin: 0 0 3pt !important;
+    }
+    ul.list-voies, ul.list-boucles {
+      height: 90vh !important;
+      width: 49% !important;
+      overflow: visible!important;
+      
+      li {
+        border-bottom: none !important;
+        border-bottom: 1px solid !important;
+        border-radius: 0 !important;
+        margin: 2pt auto !important;
+        padding: 0 !important;
+        font-size: 5pt;
+        
+        figure {
+          margin: 0 !important;
+          padding: 0 !important;
+          
+          ul {
+            li {
+              padding: 0 !important;
+              margin: 0 !important;
+              border: none !important;
+
+            }
+          }
+          img {
+            height: 35pt !important;
+          }
+          figcaption {
+            margin: 0 auto 2pt !important;
+            font-size: 5pt;
+          }
+        }
+      }
+    }
+  }
+  article.annees-personnelles {
+    width: 90vw !important;
+    margin: auto !important;
+    
+    ul {
+      margin: auto !important;
+      height: 100vh !important;
+      overflow: visible !important;
+      li {
+        page-break-inside: avoid;
+        width: 14pt !important;
+        margin: 1.2pt !important;
+        padding: 1pt !important;
+        p {
+          font-size: 4.5pt !important;
+        }
+      }
     }
   }
 }
