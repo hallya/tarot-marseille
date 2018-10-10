@@ -1,5 +1,11 @@
 @import 'Styles/vars.scss';
+@import 'Styles/animations.scss';
 
+h2 {
+  color: white;
+  margin: 0;
+  font-weight: 100;
+}
 ul.list-voies {
   order: 3;
   list-style: none;
@@ -8,12 +14,15 @@ ul.list-voies {
   margin: 0;
   height: 75vh;
   overflow: auto;
-  .voie {
+  animation: slideUp 1s;
+  li.voie {
     background: rgba(255, 255, 255, 0.452);
     margin: 10px auto;
     width: 80%;
     padding: 10px 0;
     border-radius: 5px;
+    box-shadow: $boxShadowOnBg;
+
     figure {
       margin: 0;
       ul {
@@ -26,6 +35,7 @@ ul.list-voies {
           background: $card-bg;
           padding: 2px 5px;
           border-radius: 5px;
+          box-shadow: $boxShadowOnEl;
           
           img {
             height: 15vh;
@@ -38,6 +48,8 @@ ul.list-voies {
         margin: 10px auto 5px;
         border-radius: 5px;
         width: 80%;
+        animation: fade 3s;
+        box-shadow: $boxShadowOnEl;
       }
     }
   }

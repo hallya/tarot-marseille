@@ -16,7 +16,7 @@ const Voies = ({ voies }) => {
                   voie.path.map((img, index) => (
                     <li key={index} className="voie-img">
                         <picture>
-                          <img src={majors[img]} />
+                          <img src={majors[img]} alt={`arcane numéro ${img}`}/>
                         </picture>
                     </li>
                   ))
@@ -26,7 +26,7 @@ const Voies = ({ voies }) => {
               </figure>
             </li>
           ))
-          : <li>Pas de voie . . .</li>
+          : <li className="voie">Pas de voie . . .</li>
       }
     </ul>
   )
