@@ -49,7 +49,7 @@
         margin: .05cm 0 !important;
         padding: 0 !important;
         img {
-          height: 8cm !important;
+          height: 2cm !important;
           width: auto !important;
         }
         p {
@@ -83,6 +83,7 @@
     }
   }
   article.miroirs {
+    margin: auto !important;
     h2 {
       font-size: 10pt !important;
       margin: 5pt 0 3pt !important;
@@ -135,7 +136,6 @@
       overflow: visible!important;
       
       li {
-        border-bottom: none !important;
         border-bottom: 1px solid !important;
         border-radius: 0 !important;
         margin: 2pt auto !important;
@@ -159,6 +159,7 @@
           }
           figcaption {
             margin: 0 auto 2pt !important;
+            padding: 0 !important;
             font-size: 5pt;
           }
         }
