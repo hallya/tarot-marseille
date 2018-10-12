@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SubRouter from '../SubRouter/SubRouter';
 import SideBar from '../SideBar/SideBar';
 import Content from '../Content/Content';
-import { handleSubmit, getHouses, getMiroirs, getVoiesEtBoucles, getPersonnalYears } from '../../utils/utils';
+import { handleSubmit, getHouses, getMiroirs, getCheminsEtTriades, getPersonnalYears } from '../../utils/utils';
 import { initialState } from '../../utils/states';
 
 class Main extends Component {
@@ -17,7 +17,7 @@ class Main extends Component {
       infos = handleSubmit(e),
       houses = getHouses(infos),
       miroirs = getMiroirs(houses),
-      voiesEtBoucles = getVoiesEtBoucles(houses.firstSetHouses.concat(houses.secondSetHouses)),
+      voiesEtBoucles = getCheminsEtTriades(houses.firstSetHouses.concat(houses.secondSetHouses)),
       personnalYears = getPersonnalYears(houses, infos),
       nextState = Object.assign({}, infos, houses, miroirs, voiesEtBoucles, personnalYears);
     

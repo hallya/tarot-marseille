@@ -8,7 +8,8 @@ article.arcanes {
   transform: translate3d(0em, 0em, 0em);
   opacity: 1;
   height: 92vh;
-  margin-left: 10%;
+  // margin-left: 10%;
+  margin-right: 0px;
   animation: fadeInZoomOut .4s;
 
   &.hide-arcanes {
@@ -46,10 +47,6 @@ article.arcanes {
           will-change: transform;
           will-change: box-shadow;
           
-          // &:hover {
-          //   z-index: 5;
-          //   transform: scale(1.4);
-          // }
           picture {
             height: auto;
             width: auto;
@@ -70,15 +67,12 @@ article.arcanes {
             font-weight: 400;
             background: $card-bg;
             transition: 1s ease 1.6s;
-            margin: 5px auto 0 auto;
             animation: fade 2s;
             &.description {
               opacity: 0;
 
               &.show-description {
                 opacity: 1;
-                margin: 0;
-                padding: 0 5px;
                 border-radius: 5px;
                 box-shadow: $boxShadowOnBg;
               }
@@ -177,7 +171,7 @@ article.arcanes {
     &.second {
       width: 15%;
       align-content: center;
-      margin-right: 10%;
+      // margin-right: 10%;
       li {
         width: 100%;
         height: auto;

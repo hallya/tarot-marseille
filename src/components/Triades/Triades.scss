@@ -1,10 +1,10 @@
 @import 'Styles/vars.scss';
 @import 'Styles/animations.scss';
 
-h2.boucles {
+h2.triades {
   order: 2;
 }
-ul.list-boucles {
+ul.list-triades {
   order: 4;
   width: 50%;
   list-style: none;
@@ -14,7 +14,7 @@ ul.list-boucles {
   overflow: auto;
   animation: slideLeft 1s;
 
-  li.boucle {
+  li.triade {
     background: rgba(255, 255, 255, 0.452);
     margin: 10px auto;
     width: 80%;

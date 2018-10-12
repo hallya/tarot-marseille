@@ -1,7 +1,7 @@
 import Arcanes from '../Arcanes/Arcanes';
-import VoiesBoucles from '../Voies_Boucles/Voies_Boucles';
-import AnneesPersonnelle from '../Annees/Annees';
 import Miroirs from '../Miroirs/miroirs';
+import CheminsTriades from '../Chemins_Triades/Chemins_Triades';
+import AnneesPersonnelle from '../Annees/Annees';
 
 export const subRoutes = [
   {
@@ -9,18 +9,6 @@ export const subRoutes = [
     exact: true,
     Component: Arcanes,
     name: 'Arcanes'
-  },
-  {
-    path: 'voies-boucles',
-    exact: true,
-    Component: VoiesBoucles,
-    name: 'Voies et Boucles',
-  },
-  {
-    path: 'annees-personnelle',
-    exact: true,
-    Component: AnneesPersonnelle,
-    name: 'Annees Personnelle',
   },
   {
     path: 'miroirs13',
@@ -39,5 +27,17 @@ export const subRoutes = [
     exact: true,
     Component: Miroirs,
     name: 'Miroirs à 22',
+  },
+  {
+    path: 'chemins-triades',
+    exact: true,
+    Component: CheminsTriades,
+    name: 'Chemins et Triades',
+  },
+  {
+    path: 'annees-personnelle',
+    exact: true,
+    Component: AnneesPersonnelle,
+    name: 'Annees Personnelle',
   },
 ];

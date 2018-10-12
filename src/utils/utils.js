@@ -1,5 +1,5 @@
 import { miroirs } from './miroirsdb';
-import { voiesDB, bouclesDB } from './voies-boucles-db';
+import { cheminsDB, triadesDB } from './chemins-triadesDB';
 
 const reduceNumber = (num) => {
   let decimals = []
@@ -141,51 +141,51 @@ export const getMiroirs = (state) => {
 
 const isObject = (value) => typeof value === 'object' && !Array.isArray(value);
 
-const getBoucles = (houses) => {
-  const matchsBoucles = [];
+const getTriades = (houses) => {
+  const matchsTriade = [];
   
   for (let i = 0, count = 1; i < houses.length; i++) {
     if (count === 3) {
-      matchsBoucles.push({
+      matchsTriade.push({
         card: houses[i],
-        message: bouclesDB[houses[i]]
+        message: triadesDB[houses[i]]
       })
     }
     houses[i] === houses[i + 1] ? count++ : count = 1
   }
-  return matchsBoucles;
+  return matchsTriade;
 }
 
-const getVoies = (houses) => {
-  const voies = [];
+const getChemins = (houses) => {
+  const chemins = [];
 
-  (function iterateThroughVoiesDB(obj, houses, path = []) {
+  (function iterateThroughCheminsDB(obj, houses, path = []) {
     
     for (const key in obj) {
       if (obj.hasOwnProperty(key) && houses.includes(key)) {
         
         if (isObject(obj[key])) {
-          iterateThroughVoiesDB(obj[key], houses, [...path, key])
+          iterateThroughCheminsDB(obj[key], houses, [...path, key])
         }
         
         if (typeof obj[key] === 'string') {
-          voies.push({ path: [...path, key], message: obj[key] })
+          chemins.push({ path: [...path, key], message: obj[key] })
         }
       }
     }
-  })(voiesDB, houses)
+  })(cheminsDB, houses)
 
-  return voies;
+  return chemins;
 }
 
-export const getVoiesEtBoucles = (houses) => {
+export const getCheminsEtTriades = (houses) => {
   const housesFormated = houses
     .sort((a, b) => a - b)
     .map(value => value.toString());
 
   return {
-    voies: getVoies(housesFormated),
-    boucles: getBoucles(housesFormated)
+    chemins: getChemins(housesFormated),
+    triades: getTriades(housesFormated)
   }
 }
 
