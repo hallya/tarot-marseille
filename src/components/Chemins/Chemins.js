@@ -26,7 +26,7 @@ const Chemins = ({ chemins }) => {
               </figure>
             </li>
           ))
-          : <li className="chemin">Pas de Chemins . . .</li>
+          : <li className="chemin">Pas de Chemin . . .</li>
       }
     </ul>
   )
