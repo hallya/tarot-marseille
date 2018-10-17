@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { majors } from '../../utils/img';
+import { majors } from '../../utils/imgDB';
 import './miroirs.scss';
 
 const Miroirs = ({ miroirs, path }) => {
