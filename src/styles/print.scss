@@ -38,20 +38,23 @@
   article.arcanes {
     background: white !important;
     page-break-inside: avoid !important;
-    margin: auto !important;
-    position: relative;
-    top: -3pt;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    position: relative !important;
+    bottom: -2cm !important;
     width: 20cm !important;
-    height: 100vh !important;
     font-size: 9px !important;
     justify-content: center !important;
     align-content: center !important;
     align-items: center !important;
     ul {
+      page-break-inside: avoid !important;
       height: 100vh !important;
       li {
+        page-break-inside: avoid !important;
+        height: 2.5cm !important;
         color: black !important;
-        margin: .1pt 0 !important;
+        margin: 1pt 0 !important;
         padding: 0 !important;
         img {
           height: 2cm !important;
@@ -141,13 +144,13 @@
     }
   }
 
-  article.voies-boucles {
+  article.chemins-triades {
     height: 100vh !important;
     h2 {
       font-size: 10pt !important;
       margin: 0 0 3pt !important;
     }
-    ul.list-voies, ul.list-boucles {
+    ul.list-chemins, ul.list-triades {
       height: 90vh !important;
       width: 49% !important;
       overflow: visible!important;

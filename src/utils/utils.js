@@ -1,4 +1,4 @@
-import { miroirs } from './miroirsdb';
+import { miroirs } from './miroirsDB';
 import { cheminsDB, triadesDB } from './chemins-triadesDB';
 
 const reduceNumber = (num) => {
