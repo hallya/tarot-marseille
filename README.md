@@ -1,7 +1,10 @@
 # Tarot de Marseille
----
 
-#### Installation
+## Purpose
+
+This application is a support to get informations about your life relying on the rules of the "tarot de marseille". You need documentation to understand the meaning of each sections and each card you will be able to see in it.
+
+## Installation
 
 Run in your terminal:
 ```
