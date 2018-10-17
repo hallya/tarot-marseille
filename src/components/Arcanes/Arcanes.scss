@@ -8,7 +8,6 @@ article.arcanes {
   transform: translate3d(0em, 0em, 0em);
   opacity: 1;
   height: 92vh;
-  // margin-left: 10%;
   margin-right: 0px;
   animation: fadeInZoomOut .4s;
 
@@ -55,28 +54,19 @@ article.arcanes {
               width: auto;
               height: 13.5vh;
               transition: .2s ease-in .5s;
-              &.anim-shadow {
-                transform: translateY(0);
-              }
             }
           }
 
-          figcaption {
+          figcaption.description {
             color: black;
             font-size: 0.8em;
             font-weight: 400;
             background: $card-bg;
             transition: 1s ease 1.6s;
             animation: fade 2s;
-            &.description {
-              opacity: 0;
-
-              &.show-description {
-                opacity: 1;
-                border-radius: 5px;
-                box-shadow: $boxShadowOnBg;
-              }
-            }
+            opacity: 1;
+            border-radius: 5px;
+            box-shadow: $boxShadowOnBg;
           }
         }  
       }
@@ -171,7 +161,6 @@ article.arcanes {
     &.second {
       width: 15%;
       align-content: center;
-      // margin-right: 10%;
       li {
         width: 100%;
         height: auto;
