@@ -4,7 +4,7 @@
 
 This application is a support to get informations about your life relying on the rules of the "tarot de marseille". You need documentation to understand the meaning of each sections and each card you will be able to see in it.
 
-![test](https://res.cloudinary.com/demo/image/upload/fl_awebp/cell_animation.webp)
+![test](https://github.com/hallya/tarot-marseille/blob/master/ezgif.com-gif-maker.webp)
 ## Installation
 
 Run in your terminal:
