@@ -1,7 +1,7 @@
 {
   "name": "taro",
   "version": "0.1.0",
-  "homepage": "https://hallya.github.io/tarot-marseille/",
+  "homepage": ".",
   "private": false,
   "dependencies": {
     "autoprefixer": "7.1.6",
