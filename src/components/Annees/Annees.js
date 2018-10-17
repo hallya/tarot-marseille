@@ -1,7 +1,7 @@
 import React from 'react';
 import './Annees.scss';
 import PropTypes from 'prop-types';
-import { majors } from '../../utils/img';
+import { majors } from 'Utils/imgDB';
 
 const Annees = ({ year, personnalYears }) => {
   return (
