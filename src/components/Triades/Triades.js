@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { majors } from 'Utils/img';
+import { majors } from 'Utils/imgDB';
 import './Triades.scss';
 
 const Triades = ({ triades }) => {
