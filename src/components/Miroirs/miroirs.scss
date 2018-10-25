@@ -9,16 +9,15 @@ article.miroirs {
     font-weight: 100;
   }
   ul.miroirs {
-    padding: 2%;
     margin: auto;
     border-radius: 45%;
-    height: 70vh;
+    height: 84vh;
     width: 90%;
     font-weight: 400;
     display: flex;
     align-items: baseline;
     flex-flow: wrap row;
-    justify-content: center;
+    justify-content: space-evenly;
     animation: slideUp 1s;
 
     li {
@@ -36,14 +35,14 @@ article.miroirs {
         order: 1;
         padding: 5px;
         border-radius: 5px;
-        margin: 0 30px;
+        margin: 0 2%;
         box-shadow: $boxShadowOnEl;
       }
       .miroir-title {
         order: 2;
         padding: 2% 10%;
         margin: 0;
-        font-size: 18px;
+        font-size: 1.8vh;
         animation: fade 2s;
       }
       .combinaison {
@@ -56,6 +55,7 @@ article.miroirs {
           box-shadow: $boxShadowOnEl;
           font-weight: 100;
           width: 92%;
+          font-size: 1.5vh;
           margin: 5px 0;
           animation: fade 3s;
         }

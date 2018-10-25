@@ -33,7 +33,7 @@ article.arcanes {
         display: flex;
         justify-content: center;
         figure {
-          height: 16.5vh;
+          height: 14vh;
           width: auto;
           margin: 2px 0;
           padding: 2px 5px;
@@ -52,14 +52,14 @@ article.arcanes {
 
             img {
               width: auto;
-              height: 13.5vh;
+              height: 11vh;
               transition: .2s ease-in .5s;
             }
           }
 
           figcaption.description {
             color: black;
-            font-size: 0.8em;
+            font-size: 1.5vh;
             font-weight: 400;
             background: $card-bg;
             transition: 1s ease 1.6s;
@@ -78,7 +78,7 @@ article.arcanes {
 
       li {
         padding: 0;
-        height: calc(20% - 10px);
+        height: calc(16vh - 10px);
       }
       .m6, .m8, .m10, .m7 {
         width: 30%;
@@ -102,7 +102,7 @@ article.arcanes {
       }
 
       .m6 {
-        margin: 0 0 10px 10%;
+        margin: 0 0 0px 10%;
         order: 2;
       }
 
@@ -112,7 +112,7 @@ article.arcanes {
       }
 
       .m8 {
-        margin: 0 10% 10px 0;
+        margin: 0 10% 0px 0;
         order: 4;
       }
 
@@ -139,7 +139,7 @@ article.arcanes {
 
       .m7 {
         order: 9;
-        margin: 10px 0 0 10%;
+        margin: 0px 0 0 10%;
       }
 
       .m3 {
@@ -149,7 +149,7 @@ article.arcanes {
 
       .m10 {
         order: 11;
-        margin: 10px 10% 0 0;
+        margin: 0px 10% 0 0;
       }
 
       .m11 {

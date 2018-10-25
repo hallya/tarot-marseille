@@ -38,6 +38,6 @@ export const subRoutes = [
     path: 'annees-personnelle',
     exact: true,
     Component: AnneesPersonnelle,
-    name: 'Annees Personnelle',
+    name: 'Annees Personnelles',
   },
 ];
