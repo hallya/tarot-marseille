@@ -29,9 +29,18 @@ const reducerOrNot = (year) => {
 }
 
 export const getHouses = (state) => {   
-  let { day, month, year, dayPartner, monthPartner, yearPartner, currentYear } = state,
+  let {
+    day,
+    month,
+    year,
+    dayPartner,
+    monthPartner,
+    yearPartner,
+    currentYear
+  } = state,
     date = new Date();
-  let customCurrentYear = currentYear === 0 ? date.getFullYear() : currentYear,
+  
+  let
     dayPartnerOrNone = dayPartner ? reduceNumberIfNecessary(dayPartner, 22) : 0,
     monthPartnerOrNone = monthPartner ? reduceNumberIfNecessary(monthPartner, 22) : 0,
     yearPartnerOrNone = yearPartner ? reduceNumberIfNecessary(yearPartner, 22) : 0,
@@ -49,7 +58,7 @@ export const getHouses = (state) => {
     m5 = reduceNumberIfNecessary(m1 + m2 + m3 + m4, 22),
     m6 = reduceNumberIfNecessary(m1 + m2, 22),
     m7 = reduceNumberIfNecessary(checkMat(m3, m2), 22),
-    m8 = reduceNumberIfNecessary(m6 + reducerOrNot(customCurrentYear), 22),
+    m8 = reduceNumberIfNecessary(m6 + reducerOrNot(currentYear), 22),
     m9 = reduceNumberIfNecessary(m6 + m7, 22),
     m10 = reduceNumberIfNecessary(22 - m9, 22),
     m11 = reduceNumberIfNecessary(m3 + m7 + m10, 22),

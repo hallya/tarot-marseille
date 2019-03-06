@@ -31,12 +31,12 @@
     display: none !important;
   }
 
-  main,
-  #root,
-    {
-    height: unset !important;
-    width: unset !important;
-  }
+  // main,
+  // #root,
+  //   {
+  //   height: unset !important;
+  //   width: unset !important;
+  // }
 
 
   @page {
@@ -46,10 +46,11 @@
   article.arcanes {
     background: white !important;
     page-break-inside: avoid !important;
-    margin: auto !important;
+    margin: 0 !important;
     padding: 0 !important;
-    position: absolute !important;
-    top: 3cm !important;
+    height: 100vh !important;
+    position: relative !important;
+    top: 0 !important;
     font-size: 9px !important;
     width: 100vw !important;
     justify-content: center !important;
@@ -58,20 +59,31 @@
 
     ul {
       position: relative !important;
-      top: -2cm !important;
+      top: 0cm !important;
       margin: auto !important;
       page-break-inside: avoid !important;
       height: 95vh !important;
 
       li {
         page-break-inside: avoid !important;
-        height: 5.5cm !important;
+        height: auto !important;
         color: black !important;
-        margin: 1pt 0 !important;
+        margin: 0 !important;
         padding: 0 !important;
         overflow: visible !important;
-
+        
+        &.m6,
+        &.m7,
+        &.m8,
+        &.m10{
+          box-sizing: border-box;
+          padding: 10pt !important;
+        }
+        
         figure {
+          box-sizing: border-box;
+          padding: 5pt !important;
+          overflow: visible !important;
           height: 4.8cm !important;
 
           img {

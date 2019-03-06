@@ -6,6 +6,7 @@ import { handleSubmit, getHouses, getMiroirs, getCheminsEtTriades, getPersonnalY
 import { initialState } from '../../utils/states';
 
 class Main extends Component {
+
   constructor(props) {
     super(props);
     this.state = initialState;
@@ -34,7 +35,7 @@ class Main extends Component {
           { children }
         </SideBar>
         <Content>
-          <SubRouter {...this.state} {...this.props} />
+          <SubRouter {...this.props} {...this.state} />
         </Content>
       </main>
     );
