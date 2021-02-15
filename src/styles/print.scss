@@ -5,7 +5,6 @@
 }
 
 @media print {
-
   *,
   *:before,
   *:after,
@@ -59,15 +58,15 @@
         margin: 0 !important;
         padding: 0 !important;
         overflow: visible !important;
-        
+
         &.m6,
         &.m7,
         &.m8,
-        &.m10{
+        &.m10 {
           box-sizing: border-box;
           padding: 10pt !important;
         }
-        
+
         figure {
           box-sizing: border-box;
           padding: 5pt !important;
@@ -247,7 +246,6 @@
               padding: 0 !important;
               margin: 0 !important;
               border: none !important;
-
             }
           }
 
@@ -266,25 +264,33 @@
   }
 
   article.annees-personnelles {
-    width: 90vw !important;
-    margin: 0.5cm auto 0 !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    width: 100vw !important;
 
     ul {
-      margin: auto !important;
-      height: 100vh !important;
-      overflow: visible !important;
       align-content: center !important;
+      display: grid !important;
+      grid-gap: 5pt !important;
+      grid-template-columns: repeat(auto-fill, 1.1cm) !important;
+      grid-auto-rows: auto !important;
+      height: 100% !important;
+      margin: auto 0 !important;
+      overflow: visible !important;
+      padding: 5pt !important;
+      width: 100vw !important;
 
       li {
         break-inside: avoid;
         width: auto !important;
-        height: 3.1cm !important;
-        margin: 3pt !important;
-        padding: 1pt !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
 
         img {
           height: auto !important;
-          width: 1.1cm !important;
+          margin: 0 !important;
+          width: 100% !important;
         }
 
         p {
