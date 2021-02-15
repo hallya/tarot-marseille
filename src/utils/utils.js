@@ -200,7 +200,7 @@ export const getCheminsEtTriades = (houses) => {
 
 export const getPersonnalYears = ({ m6 }, { year }) => {
   let personnalYears = [],
-    i = year + 101;
+    i = year + 112;
   for (; year < i; year++) {
     personnalYears.push(reduceNumberIfNecessary(m6 + reducerOrNot(year), 22))
   }

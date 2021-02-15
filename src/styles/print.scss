@@ -87,7 +87,7 @@
         figcaption {
           &.description {
             margin: 0 !important;
-            font-size: 14pt !important;
+            font: 500 14pt 'Open Sans', arial !important;
           }
         }
       }
@@ -131,7 +131,7 @@
     height: 100vh !important;
 
     h2 {
-      font-size: 20pt !important;
+      font: 500 20pt 'Open Sans', arial !important;
       margin: 5pt 0 3pt !important;
     }
 
@@ -178,7 +178,7 @@
             -webkit-print-color-adjust: exact;
             width: 10cm !important;
             padding: 0 !important;
-            font-size: 12pt !important;
+            font: 500 12pt 'Open Sans', arial !important;
             margin: 1pt auto !important;
           }
         }
@@ -256,7 +256,7 @@
           figcaption {
             margin: 0 auto 2pt !important;
             padding: 0 !important;
-            font-size: 15pt;
+            font: 500 15pt 'Open Sans', arial !important;
           }
         }
       }
@@ -294,7 +294,7 @@
         }
 
         p {
-          font-size: 8pt !important;
+          font: 500 8pt 'Open Sans', arial !important;
           margin: 0 !important;
           padding: 0 !important;
         }
