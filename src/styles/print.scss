@@ -26,30 +26,35 @@
     display: none !important;
   }
 
+  main {
+    height: 100% !important;
+    width: 100% !important;
+
+    section {
+      height: inherit !important;
+      width: inherit !important;
+    }
+  }
+
   @page {
     margin: 0cm;
   }
 
-  article.arcanes {
-    background: white !important;
-    break-inside: avoid !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100vh !important;
-    position: relative !important;
-    top: 0 !important;
-    font-size: 9px !important;
-    width: 100vw !important;
-    justify-content: center !important;
+  .arcanes {
     align-content: center !important;
     align-items: center !important;
+    background: white !important;
+    break-inside: avoid !important;
+    font-size: 9px !important;
+    height: 100vh !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    position: relative !important;
+    top: 0 !important;
+    width: 100% !important;
 
     ul {
-      position: relative !important;
-      top: 0cm !important;
-      margin: auto !important;
       break-inside: avoid !important;
-      height: 95vh !important;
 
       li {
         break-inside: avoid !important;
@@ -94,6 +99,7 @@
     }
 
     ul.first {
+      height: initial !important;
       width: 15cm !important;
 
       .m4 {
@@ -115,7 +121,7 @@
 
     ul.second {
       padding: 0 !important;
-      height: 95vh !important;
+      height: initial !important;
       width: 4cm !important;
 
       li {
@@ -126,7 +132,7 @@
     }
   }
 
-  article.miroirs {
+  .miroirs {
     margin: 1cm auto 0 !important;
     height: 100vh !important;
 
@@ -193,7 +199,7 @@
     }
   }
 
-  article.chemins-triades {
+  .chemins-triades {
     height: auto !important;
 
     h2 {
@@ -263,22 +269,24 @@
     }
   }
 
-  article.annees-personnelles {
-    height: 100vh !important;
-    margin: 0 !important;
-    width: 100vw !important;
+  .annees-personnelles {
+    display: block !important;
+    height: inherit !important;
+    margin: auto !important;
+    width: inherit !important;
 
     ul {
       align-content: center !important;
+      box-sizing: border-box;
       display: grid !important;
+      grid-auto-rows: auto !important;
       grid-gap: 5pt !important;
       grid-template-columns: repeat(auto-fill, 1.1cm) !important;
-      grid-auto-rows: auto !important;
-      height: 100% !important;
-      margin: auto 0 !important;
+      height: inherit !important;
+      margin: 0 !important;
       overflow: visible !important;
-      padding: 5pt !important;
-      width: 100vw !important;
+      padding: 0 5pt !important;
+      width: inherit !important;
 
       li {
         break-inside: avoid;
