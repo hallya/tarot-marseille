@@ -1,7 +1,7 @@
 import { miroirs } from './miroirsDB';
 import { cheminsDB, triadesDB } from './chemins-triadesDB';
 
-const reduceNumber = (num) => {
+const sumDecimals = (num) => {
   let decimals = []
   for (let i = 0; i < num.toString().length; i++) {
     decimals.push(Number(num.toString().charAt(i)))
@@ -16,16 +16,18 @@ const reduceNumberIfNecessary = (num, target) => {
   if (num <= target) {
     return num;
   }
-  let reduced = reduceNumber(num);
-  return reduced <= target ? reduced : reduceNumber(reduced);
+  let reduced = sumDecimals(num);
+  return reduced <= target ? reduced : sumDecimals(reduced);
 }
 
 const checkMat = (num1, num2) => num1 - num2 < 0 ? (num1 - num2) * -1 : num1 - num2
 
-const reducerOrNot = (year) => {
-  let reduced = reduceNumber(year);
-  if (reduced < 10 || reduced === 11 || reduced === 22) return reduced;
-  return reduceNumber(reduced) 
+const reduceYear = (year) => {
+  let reducedYear = sumDecimals(year);
+  if (reducedYear < 10 || reducedYear === 11 || reducedYear === 22) {
+    return reducedYear;
+  }
+  return reduceYear(reducedYear);
 }
 
 export const getHouses = (state) => {   
@@ -37,14 +39,12 @@ export const getHouses = (state) => {
     monthPartner,
     yearPartner,
     currentYear
-  } = state,
-    date = new Date();
+  } = state;
   
-  let
-    dayPartnerOrNone = dayPartner ? reduceNumberIfNecessary(dayPartner, 22) : 0,
-    monthPartnerOrNone = monthPartner ? reduceNumberIfNecessary(monthPartner, 22) : 0,
-    yearPartnerOrNone = yearPartner ? reduceNumberIfNecessary(yearPartner, 22) : 0,
-    m4Partner = yearPartner ? reduceNumberIfNecessary(dayPartnerOrNone + monthPartnerOrNone + yearPartnerOrNone, 22) : 0;
+  let dayPartnerOrNone = dayPartner ? reduceNumberIfNecessary(dayPartner, 22) : 0;
+  const monthPartnerOrNone = monthPartner ? reduceNumberIfNecessary(monthPartner, 22) : 0;
+  const yearPartnerOrNone = yearPartner ? reduceNumberIfNecessary(yearPartner, 22) : 0;
+  const m4Partner = yearPartner ? reduceNumberIfNecessary(dayPartnerOrNone + monthPartnerOrNone + yearPartnerOrNone, 22) : 0;
   
   day = day ? day : 0;
   month = month ? month : 0;
@@ -58,7 +58,7 @@ export const getHouses = (state) => {
     m5 = reduceNumberIfNecessary(m1 + m2 + m3 + m4, 22),
     m6 = reduceNumberIfNecessary(m1 + m2, 22),
     m7 = reduceNumberIfNecessary(checkMat(m3, m2), 22),
-    m8 = reduceNumberIfNecessary(m6 + reducerOrNot(currentYear), 22),
+    m8 = reduceNumberIfNecessary(m6 + reduceYear(currentYear), 22),
     m9 = reduceNumberIfNecessary(m6 + m7, 22),
     m10 = reduceNumberIfNecessary(22 - m9, 22),
     m11 = reduceNumberIfNecessary(m3 + m7 + m10, 22),
@@ -202,7 +202,7 @@ export const getPersonnalYears = ({ m6 }, { year }) => {
   let personnalYears = [],
     i = year + 112;
   for (; year < i; year++) {
-    personnalYears.push(reduceNumberIfNecessary(m6 + reducerOrNot(year), 22))
+    personnalYears.push(reduceNumberIfNecessary(m6 + reduceYear(year), 22))
   }
   return {personnalYears}
 }
